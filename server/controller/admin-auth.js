@@ -101,6 +101,47 @@ const Getprofile=async(req,res)=>{
     
 }
 const Googleauthlogin=async(req,res)=>{
+    try {
+        // const {name,email}=req.body;
+        // let user=await adminmodel.findOne({email});
+        // if(!user){
+        //     user=await adminmodel.create({
+        //         name,
+        //         email,
+        //         password:"GOOGLE_LOGIN",
+        //     })
+        // }
+        // const token=createtoken(user._id);
+        // res.cookie("token",token,{
+        //      httpOnly:true,
+        //         secure:true,
+        //         sameSite:"strict",
+        //         maxAge:24*60*60*1000
+            
+
+        // })
+        // return res.json({status:true,email:user.email});
+        const {email}=req.body;
+        
+            const user=await adminmodel.findOne({email});
+            if(!user){
+                return res.json({status:false,message:"USER DOES NOT EXIST "});
+            }
+            const token=createtoken(user._id);
+            res.cookie("token",token,{
+                httpOnly:true,
+                secure:true,
+                sameSite:"strict",
+                maxAge:24*60*60*1000
+            })
+    
+            return res.json({status:true,email:email});
+    
+        }        
+     catch (error) {
+        console.log("google login error ",error);
+        
+    }
 
 }
 export {Register,Login,Logout,Getprofile,Googleauthlogin}

@@ -8,7 +8,8 @@ const adminslice=createSlice({
             email:"",
             password:""
         },
-        passwordhide:false
+        passwordhide:false,
+        navbarclass:""
         
         
     },
@@ -23,6 +24,9 @@ const adminslice=createSlice({
     },
     setpasswordhide(state,action){
         state.passwordhide=action.payload
+    },
+    setnavbarclass(state,action){
+        state.navbarclass=action.payload;
     }
     
 }

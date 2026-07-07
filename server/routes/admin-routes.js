@@ -5,5 +5,5 @@ Adminauthrouter.post("/reg",Register);
 Adminauthrouter.post("/log",Login);
 Adminauthrouter.post("/out",Logout);
 Adminauthrouter.get("/pr",Getprofile);
-Adminauthrouter.post("/log2",Googleauthlogin);
+Adminauthrouter.post("/google_signin",Googleauthlogin);
 export default Adminauthrouter;
