@@ -5,6 +5,7 @@ import axios from "axios"
 import {useDispatch,useSelector} from "react-redux"
 import { control } from './store/slice'
 import Homepage from './components/Homepage'
+import Uploadcontent from './pages/Uploadcontent'
 const App = () => {
   const backendurl="http://localhost:9000"
   const backendemail=useSelector(state=>state.main.backendemail);
@@ -38,6 +39,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={backendemail?<Homepage url={backendurl}/>:<Navigate to="/login"/>}></Route>
         <Route path="/login" element={!backendemail?<Login url={backendurl}/>:<Navigate to="/"/>}></Route>
+        <Route path="/upload" element={backendemail?<Uploadcontent url={backendurl}/>:<Navigate to="/login"/>}></Route>
+       
       </Routes>
      </div>
   )

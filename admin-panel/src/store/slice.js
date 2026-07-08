@@ -9,7 +9,22 @@ const adminslice=createSlice({
             password:""
         },
         passwordhide:false,
-        navbarclass:""
+        navbarclass:"",
+        projectdetails:{
+
+            name:"",
+            description:"",
+            url:"",
+        },
+        skilldetails:{
+            name:"",
+
+        },
+        herosectiondetails:{
+            name:"",
+            mainheading:"",
+            Bio:""
+        }
         
         
     },
@@ -27,6 +42,18 @@ const adminslice=createSlice({
     },
     setnavbarclass(state,action){
         state.navbarclass=action.payload;
+    },
+    setprojectdetails(state,action){
+        const {name,value}=action.payload;
+        state.projectdetails[name]=value;
+    },
+    setskilldetails(state,action){
+        const {name,value}=action.payload;
+        state.skilldetails[name]=value;
+    },
+    setherosectiondetails(state,action){
+        const {name,value}=action.payload;
+        state.herosectiondetails[name]=value;
     }
     
 }

@@ -5,6 +5,8 @@ import { control } from '../store/slice'
 import {toast} from "react-hot-toast"
 import Sidebar from './Sidebar'
 import Navbar from './Navbar'
+import Uploadcontent from '../pages/Uploadcontent'
+import { Navigate, Route,Routes } from 'react-router-dom'
 const Homepage = ({url}) => {
     const dispatch=useDispatch();
     const backendemail=useSelector(state=>state.main.backendemail);
@@ -37,6 +39,9 @@ const Homepage = ({url}) => {
         <Navbar url={url}/>
         <hr/>
     <Sidebar url={url}/>
+   
+   
+   
     </div>
   )
 }
