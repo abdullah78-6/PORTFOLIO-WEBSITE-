@@ -6,7 +6,7 @@ import {toast} from "react-hot-toast"
 import Sidebar from './Sidebar'
 import Navbar from './Navbar'
 import Uploadcontent from '../pages/Uploadcontent'
-import { Navigate, Route,Routes } from 'react-router-dom'
+import { Navigate, Outlet, Route,Routes } from 'react-router-dom'
 const Homepage = ({url}) => {
     const dispatch=useDispatch();
     const backendemail=useSelector(state=>state.main.backendemail);
@@ -38,6 +38,7 @@ const Homepage = ({url}) => {
     <div>
         <Navbar url={url}/>
         <hr/>
+        <Outlet/>
     <Sidebar url={url}/>
    
    

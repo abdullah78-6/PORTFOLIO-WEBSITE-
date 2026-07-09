@@ -24,7 +24,10 @@ const adminslice=createSlice({
             name:"",
             mainheading:"",
             Bio:""
-        }
+        },
+        skilllist:[],
+        projectlist:[],
+        Herolist:[]
         
         
     },
@@ -54,7 +57,18 @@ const adminslice=createSlice({
     setherosectiondetails(state,action){
         const {name,value}=action.payload;
         state.herosectiondetails[name]=value;
+    },
+    setskilllist(state,action){
+        state.skilllist=action.payload;
+        
+    },
+    setprojectlist(state,action){
+        state.projectlist=action.payload;
+    },
+    setHerolist(state,action){
+        state.Herolist=action.payload;
     }
+    
     
 }
 })

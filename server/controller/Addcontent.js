@@ -118,4 +118,111 @@ const Addheroimage=async(req,res)=>{
        }
 
 }
-export {Addproject,Addskill,Addheroimage}
+const Getproject=async(req,res)=>{
+    try {
+    const project=await projectmodel.find();
+    return res.json({status:true,projectlist:project});
+    } catch (error) {
+    console.log("get project error ",error);
+    res.json({status:false,message:error.message});
+    }
+}
+const Getskill=async(req,res)=>{
+    try {
+    const skill=await skillmodel.find();
+    return res.json({status:true,skilllist:skill});
+    } catch (error) {
+    console.log("get skill error ",error);
+    res.json({status:false,message:error.message});
+    }
+
+
+}
+const Getherosection=async(req,res)=>{
+    try {
+    const herosection=await Heromodel.find();
+    return res.json({status:true,herolist:herosection});
+    } catch (error) {
+    console.log("get herosection error ",error);
+    res.json({status:false,message:error.message});
+    }
+
+}
+const DeleteSkill=async(req,res)=>{
+     try {
+        const skill=await skillmodel.findById(req.body.id);
+      if(!skill){
+    return  res.json({success:false,message:"SKILL NOT FOUND"});
+
+        }
+        
+         console.log("this is public id ",skill.public_id);
+    if(skill.public_id){
+           
+            await cloudinary.uploader.destroy(skill.public_id);
+
+        }
+        
+        await skillmodel.findByIdAndDelete(req.body.id);
+         res.json({success:true,message:"DATA DELETED SUCESSFULLY "});
+        
+    } catch (error) {
+        console.log("delete error",error);
+         res.json({success:false,message:"DATA DELETE ERROR"});
+        
+    }
+
+}
+const DeleteProject=async(req,res)=>{
+    try {
+        const project=await projectmodel.findById(req.body.id);
+      if(!project){
+    return  res.json({success:false,message:"PROJECT NOT FOUND"});
+
+        }
+        
+         console.log("this is public id ",project.public_id);
+    if(project.public_id){
+           
+            await cloudinary.uploader.destroy(project.public_id);
+
+        }
+        
+        await projectmodel.findByIdAndDelete(req.body.id);
+         res.json({success:true,message:"DATA DELETED SUCESSFULLY "});
+        
+    } catch (error) {
+        console.log("delete error",error);
+         res.json({success:false,message:"DATA DELETE ERROR"});
+        
+    }
+
+
+}
+const DeleteHerosection=async(req,res)=>{
+    try {
+        const hero=await Heromodel.findById(req.body.id);
+      if(!hero){
+    return  res.json({success:false,message:"HERO DETAILS NOT FOUND"});
+
+        }
+        
+         console.log("this is public id ",hero.public_id);
+    if(hero.public_id){
+           
+            await cloudinary.uploader.destroy(hero.public_id);
+
+        }
+        
+        await Heromodel.findByIdAndDelete(req.body.id);
+         res.json({success:true,message:"DATA DELETED SUCESSFULLY "});
+        
+    } catch (error) {
+        console.log("delete error",error);
+         res.json({success:false,message:"DATA DELETE ERROR"});
+        
+    }
+
+
+}
+export {Addproject,Addskill,Addheroimage,Getproject,Getskill,Getherosection,DeleteSkill,DeleteProject,DeleteHerosection}
