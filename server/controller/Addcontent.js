@@ -225,4 +225,51 @@ const DeleteHerosection=async(req,res)=>{
 
 
 }
-export {Addproject,Addskill,Addheroimage,Getproject,Getskill,Getherosection,DeleteSkill,DeleteProject,DeleteHerosection}
+const Updateherosection=async(req,res)=>{
+    try {
+        const {id,name,Bio,mainheading}=req.body;
+        if(!req.file){
+            return res.json({staus:false,message:"Image Is Required"});
+        }
+        if(!id||!name||!Bio||!mainheading){
+           return  res.json({status:false,message:"All Fields Are Required"});
+        }
+        const Hero=await Heromodel.findById(id);
+        if(!Hero){
+            return res.json({status:false,message:"Hero Section Not Found"});
+        }
+        if(req.file){
+            if(Hero.public_id){
+                await cloudinary.uploader.destroy(Hero.public_id);
+            }
+            const result=await cloudinary.uploader.upload(req.file.path,{
+                folder:"uploads",
+                resource_type:"image",
+                timeout:120000
+            });
+            fs.unlinkSync(req.file.path);
+            Hero.image=result.secure_url;
+            Hero.public_id=result.public_id;
+            Hero.localfile=req.file.filename;
+        }
+        Hero.name=name;
+        Hero.Bio=Bio;
+        Hero.mainheading=mainheading;
+        await Hero.save();
+        
+        return res.json({status:true,message:"Update Complete"});
+        
+        
+        
+    } catch (error) {
+        console.log(error);
+        if(req.file&&fs.existsSync(req.file.path)){
+            fs.unlinkSync(req.file.path);
+        }
+        res.json({status:false,message:"Update Hero Section Error"})
+        
+    }
+    
+    
+}
+export {Addproject,Addskill,Addheroimage,Getproject,Getskill,Getherosection,DeleteSkill,DeleteProject,DeleteHerosection,Updateherosection}

@@ -97,7 +97,7 @@ const Login=({url}) => {
     }
   return (
    
-    <div className='font-semibold text-2xl capitalize  text-purple-950 min-h-screen  flex justify-center items-center   bg-gray-700 px-4 flex-col gap-6'>
+    <div className='font-semibold text-2xl capitalize  text-purple-950 min-h-screen  flex justify-center items-center    px-4 flex-col gap-6'>
         <div className='bg-white px-3 py-1 rounded-4xl'>
     <h1 className='text-xl uppercase text-purple-950'>portfolio admin panel </h1>    
     </div>
@@ -105,7 +105,7 @@ const Login=({url}) => {
             
     
         <div className='flex justify-center items-center'>
-            <form onSubmit={Onsubmit2} className='flex  justify-center items-center flex-col gap-5 w-full max-w-md bg-white shadow-2xl rounded-2xl p-8 border border-gray-200 '>
+            <form onSubmit={Onsubmit2} className='flex  justify-center items-center flex-col gap-5 w-full max-w-md bg-[#916BBF] shadow-2xl rounded-lg p-8 border border-gray-200 '>
                 <div className='flex justify-center items-center gap-3 flex-col'>
                 <div >
                         <label className='block text-xl' htmlFor="email">email</label>

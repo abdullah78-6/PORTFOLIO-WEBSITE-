@@ -4,11 +4,12 @@ import {useDispatch,useSelector} from "react-redux"
 import { control } from "../store/slice";
 import toast from "react-hot-toast"
 import { FaTrash } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 const Herosection=({url})=>{
     const dispatch=useDispatch();
     const backendemail=useSelector(state=>state.main.backendemail);
     const Herolist=useSelector(state=>state.main.Herolist);
-    
+    const navigate=useNavigate();    
     const Fetch=async()=>{
         try {
             const res=await axios.get(url+"/api/admin/gethero",{
@@ -42,6 +43,10 @@ const Herosection=({url})=>{
         toast.error(response.data.message);
       }
 
+    }
+    const Sendtoupdate=(id)=>{
+     dispatch(control.setherosectionid(id));
+     navigate("/hero_section_update")
     }
 useEffect(()=>{
     Fetch();
@@ -105,6 +110,9 @@ useEffect(()=>{
                 </p>
                 <h1 className="text-pink-800 font-semibold break-words">{item.Bio}</h1>
                
+              </div>
+              <div>
+                <button onClick={()=>Sendtoupdate(item._id)} className="p-3 bg-purple-900 text-xl font-semibold text-white rounded-3xl hover:bg-purple-950 hover:scale-110 transition ease-in-out duration-200">Update</button>
               </div>
             </div>
 

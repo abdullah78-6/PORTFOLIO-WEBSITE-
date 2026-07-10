@@ -12,6 +12,8 @@ import Dashboard from './pages/Dashboard'
 import Skills from './pages/Skills'
 import Project from './pages/Project'
 import Herosection from './pages/Herosection'
+import UpdateHerosection from './pages/UpdateHerosection'
+import Contacts from './pages/Contacts'
 const App = () => {
   const backendurl = "http://localhost:9000"
   const backendemail = useSelector(state => state.main.backendemail)
@@ -75,6 +77,15 @@ return (
             path="/herosection"
             element={backendemail ? <Herosection url={backendurl} /> : <Navigate to="/login" />}
           />
+          <Route
+            path="/hero_section_update"
+            element={backendemail ? <UpdateHerosection url={backendurl} /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/contacts"
+            element={backendemail ? <Contacts url={backendurl} /> : <Navigate to="/login" />}
+          />
+
         </Routes>
 
       </div>

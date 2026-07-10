@@ -170,13 +170,14 @@ const Uploadcontent = ({url}) => {
     }
   return (
         
-    <div className='flex justify-center gap-30 items-center flex-wrap flex-row'>
-    <h1>add resume data in your portfolio</h1>
+    <div className='font-semibold capitalize' >
+    <h1 className='text-center text-4xl text-purple-700 '>add resume data in your portfolio</h1>
+    <div className='flex justify-center items-center flex-wrap mt-10 gap-15 ml-4   '>
         <div >
-            <form onSubmit={Addproject}>
+            <form onSubmit={Addproject} className='flex justify-center items-center flex-col bg-[#5C469C] p-7 rounded-lg flex-wrap'>
                 <div>
                     <label htmlFor='image'>
-                        <img className='w-32 h-32 md:w-32 md:h-32 object-cover rounded-xl border-2 border-dashed border-gray-300 group-hover:border-red-500 transition' alt="upload" src={img1? URL.createObjectURL(img1) : assestsimg.image} />
+                        <img className='w-32 h-22 md:w-32 md:h-22 object-cover rounded-lg border-3 border-dashed border-[#950101]  transition ease-in-out duration-200' alt="upload" src={img1? URL.createObjectURL(img1) : assestsimg.image} />
 
                     </label>
                     
@@ -190,32 +191,32 @@ const Uploadcontent = ({url}) => {
               accept="image/*" 
               />
                 </div>
-                <div>
-                <div>
-                    <label htmlFor='name'>project name</label>
+                <div className='flex justify-center items-center gap-2 text-xl flex-col mt-2'>
+                <div className='mb-4'>
+                    <label className='text-purple-950' htmlFor='name'>project name</label>
                 </div>
                 <div>
-                    <input onChange={onchangehandler1} name="name" value={projectdetails.name} type="text" placeholder='Add Project Name' required/>
+                    <input className='border-2 border-[#0C134F] outline-none p-1 rounded-4xl focus:ring-2 focus:ring-[#5F264A] text-purple-900 text-xl' onChange={onchangehandler1} name="name" value={projectdetails.name} type="text" placeholder='Add Project Name' required/>
                 </div>
                 </div>
-                <div>
-                <div>
-                    <label htmlFor='desc'>Project Description</label>
-                </div>
-                <div>
-                    <textarea onChange={onchangehandler1} name="description" value={projectdetails.description} rows={10} cols={10} required placeholder='Project Description'/>
-                </div>
+                <div className='flex justify-center items-center gap-2 text-xl flex-col'>
+                <div className='mb-4'>
+                    <label className='text-purple-950' htmlFor='desc'>Project Description</label>
                 </div>
                 <div>
-                <div>
-                    <label htmlFor='url'>Project URL (optional)</label>
-                </div>
-                <div>
-                    <input onChange={onchangehandler1} name="url" value={projectdetails.url} type='text' placeholder='Project url'/>
+                    <textarea className='border-2 border-[#0C134F] outline-none p-2 rounded-lg focus:ring-2 focus:ring-[#5F264A] text-purple-900 text-xl' onChange={onchangehandler1} name="description" value={projectdetails.description} rows={5} cols={25} required placeholder='Project Description'/>
                 </div>
                 </div>
+                <div className='flex justify-center items-center gap-2 text-xl flex-col'>
+                <div className='mb-4'>
+                    <label className='text-purple-950' htmlFor='url'>Project URL (optional)</label>
+                </div>
                 <div>
-                    <button type="submit">Add Project<span>{loading&&<ClipLoader/>}</span></button>
+                    <input className='border-2 border-[#0C134F] outline-none p-1 rounded-4xl focus:ring-2 focus:ring-[#5F264A] text-purple-900 text-xl' onChange={onchangehandler1} name="url" value={projectdetails.url} type='text' placeholder='Project url'/>
+                </div>
+                </div>
+                <div className='mb-4 '>
+                    <button className='bg-[#FF0000] mt-3 p-2 rounded-xl text-purple-300 hover:scale-110 transition ease-in-out duration-200' type="submit">Add Project<span>{loading&&<ClipLoader color='#3E2C41' />}</span></button>
                 </div>
                  
 
@@ -223,10 +224,10 @@ const Uploadcontent = ({url}) => {
             </form>
         </div>
         <div>
-            <form onSubmit={Addskill}>
+            <form onSubmit={Addskill} className='flex justify-center items-center flex-col bg-[#5C469C] p-3 rounded-lg flex-wrap'>
                 <div>
                     <label htmlFor='image2'>
-                        <img className='w-32 h-32 md:w-32 md:h-32 object-cover rounded-xl border-2 border-dashed border-gray-300 group-hover:border-red-500 transition' alt="upload" src={img2? URL.createObjectURL(img2) : assestsimg.image} />
+                        <img className='w-32 h-22 md:w-32 md:h-22 object-cover rounded-xl border-2 border-dashed border-[#950101]   ease-in-out duration-200  transition' alt="upload" src={img2? URL.createObjectURL(img2) : assestsimg.image} />
 
                     </label>
                     
@@ -240,25 +241,25 @@ const Uploadcontent = ({url}) => {
               accept="image/*" 
               />
                 </div>
-                <div>
-                    <div>
-                        <label htmlFor="name">Skill Name</label>
+                <div className='flex justify-center items-center gap-2 text-xl flex-col mt-2'>
+                    <div className='mb-4 '>
+                        <label className='text-purple-950' htmlFor="name">Skill Name</label>
                     </div>
-                    <div>
-                        <input onChange={onchangehandler2} name="name" value={skilldetails.name} type="text" placeholder='Skill Name'required />
+                    <div className='mb-4 '>
+                        <input className='border-2 border-[#0C134F] outline-none p-1 rounded-4xl focus:ring-2 focus:ring-[#5F264A] text-purple-900 text-xl' onChange={onchangehandler2} name="name" value={skilldetails.name} type="text" placeholder='Skill Name'required />
                     </div>
                 </div>
                 <div>
-                    <button type="submit">Add Skill <span>{loading2&&<ClipLoader/>}</span></button>
+                    <button className='bg-[#FF0000] mt-3 p-2 rounded-xl text-purple-300 hover:scale-110 transition ease-in-out duration-200' type="submit">Add Skill <span>{loading2&&<ClipLoader color='#3E2C41'/>}</span></button>
                 </div>
 
             </form>
         </div>
         <div>
-            <form onSubmit={Addheroimage}>
+            <form onSubmit={Addheroimage} className='flex justify-center items-center flex-col bg-[#5C469C] p-3 rounded-lg flex-wrap'>
                 <div>
                     <label htmlFor='image3'>
-                        <img className='w-32 h-32 md:w-32 md:h-32 object-cover rounded-xl border-2 border-dashed border-gray-300 group-hover:border-red-500 transition' alt="upload" src={img3? URL.createObjectURL(img3) : assestsimg.image} />
+                        <img className='w-32 h-22 md:w-32 md:h-22 object-cover rounded-xl border-2 border-dashed border-[#950101]   ease-in-out duration-200  transition' alt="upload" src={img3? URL.createObjectURL(img3) : assestsimg.image} />
 
                     </label>
                     
@@ -272,38 +273,38 @@ const Uploadcontent = ({url}) => {
               accept="image/*" 
               />
                 </div>
-                <div>
-                    <div>
-                        <label htmlFor="name">Your Full Name</label>
+                <div className='flex justify-center items-center gap-2 text-xl flex-col mt-2'>
+                    <div className='mb-4 '>
+                        <label className='text-purple-950' htmlFor="name">Your Full Name</label>
                     </div>
                     <div>
-                        <input onChange={onchangehandler3} name="name" value={herosectiondetails.name} type="text" placeholder='Full Name'required />
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <label htmlFor="heading">Main Heading </label>
-                    </div>
-                    <div>
-                        <input onChange={onchangehandler3} name="mainheading" value={herosectiondetails.mainheading} type="text" placeholder='Headlines'required />
+                        <input className='border-2 border-[#0C134F] outline-none p-1 rounded-4xl focus:ring-2 focus:ring-[#5F264A] text-purple-900 text-xl' onChange={onchangehandler3} name="name" value={herosectiondetails.name} type="text" placeholder='Full Name'required />
                     </div>
                 </div>
-                <div>
-                    <div>
-                        <label htmlFor="name">Add Short Bio</label>
+                <div className='flex justify-center items-center gap-2 text-xl flex-col mt-2'>
+                    <div className='mb-4 '>
+                        <label className='text-purple-950' htmlFor="heading">Main Heading </label>
                     </div>
                     <div>
-                        <textarea rows={10} cols={10} onChange={onchangehandler3} name="Bio" value={herosectiondetails.Bio} type="text" placeholder='Short Bio'required ></textarea>
+                        <input className='border-2 border-[#0C134F] outline-none p-1 rounded-4xl focus:ring-2 focus:ring-[#5F264A] text-purple-900 text-xl' onChange={onchangehandler3} name="mainheading" value={herosectiondetails.mainheading} type="text" placeholder='Headlines'required />
                     </div>
                 </div>
-                <div>
-                    <button type="submit">Add Hero Section <span>{loading3&&<ClipLoader/>}</span></button>
+                <div className='flex justify-center items-center gap-2 text-xl flex-col mt-2'>
+                    <div className='mb-4 '>
+                        <label className='text-purple-950' htmlFor="name">Add Short Bio</label>
+                    </div>
+                    <div>
+                        <textarea className='border-2 border-[#0C134F] outline-none p-2 rounded-lg focus:ring-2 focus:ring-[#5F264A] text-purple-900 text-xl' rows={5} cols={25} onChange={onchangehandler3} name="Bio" value={herosectiondetails.Bio} type="text" placeholder='Short Bio'required ></textarea>
+                    </div>
+                </div>
+                <div className='mb-4'>
+                    <button className='bg-[#FF0000] mt-3 p-2 rounded-xl text-purple-300 hover:scale-110 transition ease-in-out duration-200' type="submit">Add Hero Section <span>{loading3&&<ClipLoader color='#3E2C41'/>}</span></button>
                 </div>
 
 
             </form>
         </div>
-      
+      </div>
     </div>
   )
 }

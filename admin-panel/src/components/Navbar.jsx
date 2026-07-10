@@ -30,12 +30,12 @@ const Navbar=({url})=>{
         </div>
          <ul className="flex justify-end items-center gap-9 capitalize font-semibold md:hidden xl:hidden lg:hidden flex-wrap ">
             <Link to="/" className="text-pink-100 bg-purple-600 p-2 rounded-3xl hover:scale-110 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer ">Dashboard</Link>
-            <Link className="text-pink-100 bg-purple-600 p-2 rounded-3xl hover:scale-110 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/add-departments">Add Departments</Link>
-            <Link className="text-pink-100 bg-purple-600 p-2 rounded-3xl hover:scale-110 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/appointments">Appointments</Link>
-            <Link className="text-pink-100 bg-purple-600 p-2 rounded-3xl hover:scale-110 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/list">Patients Lists</Link>
-            <Link className="text-pink-100 bg-purple-600 p-2 rounded-3xl hover:scale-110 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/enquiries">Enquiries</Link>
-            <Link className="text-pink-100 bg-purple-600 p-2 rounded-3xl hover:scale-110 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/add-patients">Add Patients</Link>
-            <Link className="text-pink-100 bg-purple-600 p-2 rounded-3xl hover:scale-110 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/dlist">departments list</Link>
+            <Link className="text-pink-100 bg-purple-600 p-2 rounded-3xl hover:scale-110 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/upload">Upload Section</Link>
+            <Link className="text-pink-100 bg-purple-600 p-2 rounded-3xl hover:scale-110 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/skills">Skills</Link>
+            <Link className="text-pink-100 bg-purple-600 p-2 rounded-3xl hover:scale-110 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/contacts">Contacts</Link>
+            <Link className="text-pink-100 bg-purple-600 p-2 rounded-3xl hover:scale-110 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/projects">Projects</Link>
+            <Link className="text-pink-100 bg-purple-600 p-2 rounded-3xl hover:scale-110 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/herosection">Hero Section Content</Link>
+            
            {!backendemail? <Link to="/login" className="bg-blue-700 text-white p-2 rounded-3xl hover:bg-blue-900 transition ease-in-out duration-200" >LOGIN</Link>:<button className="bg-red-700 text-white p-2 rounded-3xl hover:bg-red-900 transition ease-in-out duration-200" onClick={Logout}>LOGOUT</button>}
             {backendemail && (
     <div className="flex items-center justify-between gap-3 cursor-poiter flex-wrap">
