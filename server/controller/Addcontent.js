@@ -3,6 +3,7 @@ import projectmodel from "../models/Project-model.js"
 import fs from "fs"
 import skillmodel from "../models/Skill-model.js"
 import Heromodel from "../models/Herosection-model.js"
+import resumemodel from "../models/Resume-model.js"
 const Addproject=async(req,res)=>{
    try {
             if(!req.file){
@@ -272,4 +273,62 @@ const Updateherosection=async(req,res)=>{
     
     
 }
-export {Addproject,Addskill,Addheroimage,Getproject,Getskill,Getherosection,DeleteSkill,DeleteProject,DeleteHerosection,Updateherosection}
+const Addresume=async(req,res)=>{
+    try {
+            if(!req.file){
+          return  res.json({status:false,result:"ADD RESUME "})
+       }
+       const result=await cloudinary.uploader.upload(req.file.path,{
+           folder:"uploads",
+           resource_type:"image",
+           timeout:120000
+       })
+       console.log(result.secure_url);
+       fs.unlinkSync(req.file.path);
+       const Resumestore=new resumemodel({
+           
+           localfile:req.file.filename,
+           image:result.secure_url,
+           public_id:result.public_id
+       })
+       
+           await Resumestore.save();
+         return   res.json({status:true,result:"Resume Added Successfully"})
+        
+    } catch (error) {
+        console.log("add cv error ",error);
+        return res.json({status:false ,result:"Add Resume Server Error"});
+        
+    }
+
+}
+const GetResume=async(req,res)=>{
+    try {
+        const resume=await resumemodel.find();
+    return res.json({status:true,resumelist:resume});
+    } catch (error) {
+        console.log("get resume error ",error);
+        
+    }
+
+}
+const DeleteResume=async(req,res)=>{
+    try {
+    const resume=await resumemodel.findById(req.body.id);
+    if(!resume){
+    return  res.json({success:false,message:"RESUME  NOT FOUND"});
+    }
+    console.log("this is public id ",resume.public_id);
+    if(resume.public_id){
+    await cloudinary.uploader.destroy(resume.public_id);
+}
+await resumemodel.findByIdAndDelete(req.body.id);
+res.json({success:true,message:"DATA DELETED SUCESSFULLY "});
+} catch (error) {
+        console.log("delete error",error);
+         res.json({success:false,message:"DATA DELETE ERROR"});
+        
+    }
+
+}
+export {Addproject,Addskill,Addheroimage,Getproject,Getskill,Getherosection,DeleteSkill,DeleteProject,DeleteHerosection,Updateherosection,Addresume,GetResume,DeleteResume}

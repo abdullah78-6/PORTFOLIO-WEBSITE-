@@ -14,6 +14,7 @@ import Project from './pages/Project'
 import Herosection from './pages/Herosection'
 import UpdateHerosection from './pages/UpdateHerosection'
 import Contacts from './pages/Contacts'
+import Resume from './pages/Resume'
 const App = () => {
   const backendurl = "http://localhost:9000"
   const backendemail = useSelector(state => state.main.backendemail)
@@ -84,6 +85,10 @@ return (
           <Route
             path="/contacts"
             element={backendemail ? <Contacts url={backendurl} /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/resume"
+            element={backendemail ? <Resume url={backendurl} /> : <Navigate to="/login" />}
           />
 
         </Routes>

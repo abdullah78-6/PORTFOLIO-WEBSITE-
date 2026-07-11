@@ -71,11 +71,13 @@ const UpdateHerosection = ({url})=>{
 
     }
 return (
-    <div>
-    <form onSubmit={Update}>
+    <div className='font-semibold capitalize ' >
+        <div  >
+            <div className='flex justify-center items-center flex-wrap mt-20 ml-150  ' >
+    <form className='flex justify-center items-center flex-col bg-[#5C469C] p-30 rounded-lg flex-wrap' onSubmit={Update}>
                 <div>
                     <label htmlFor='image3'>
-                        <img className='w-32 h-32 md:w-32 md:h-32 object-cover rounded-xl border-2 border-dashed border-gray-300 group-hover:border-red-500 transition' alt="upload" src={img4? URL.createObjectURL(img4) : assestsimg.image} />
+                        <img className='w-32 h-22 md:w-32 md:h-22 object-cover rounded-lg border-3 border-dashed border-[#950101]  transition ease-in-out duration-200' alt="upload" src={img4? URL.createObjectURL(img4) : assestsimg.image} />
 
                     </label>
                     
@@ -89,36 +91,38 @@ return (
               accept="image/*" 
               />
                 </div>
-                <div>
-                    <div>
-                        <label htmlFor="name">Your Full Name</label>
+                <div className='flex justify-center items-center gap-2 text-xl flex-col mt-2'>
+                    <div className='mb-4'>
+                        <label className='text-purple-950' htmlFor="name">Your Full Name</label>
                     </div>
                     <div>
-                        <input onChange={onchangehandler3} name="name" value={herosectiondetails2.name} type="text" placeholder='Full Name'required />
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <label htmlFor="heading">Main Heading </label>
-                    </div>
-                    <div>
-                        <input onChange={onchangehandler3} name="mainheading" value={herosectiondetails2.mainheading} type="text" placeholder='Headlines'required />
+                        <input className='border-2 border-[#0C134F] outline-none p-1 rounded-4xl focus:ring-2 focus:ring-[#5F264A] text-purple-900 text-xl' onChange={onchangehandler3} name="name" value={herosectiondetails2.name} type="text" placeholder='Full Name'required />
                     </div>
                 </div>
                 <div>
-                    <div>
-                        <label htmlFor="name">Add Short Bio</label>
+                    <div className='mb-4'>
+                        <label className='text-purple-950' htmlFor="heading">Main Heading </label>
                     </div>
                     <div>
-                        <textarea rows={10} cols={10} onChange={onchangehandler3} name="Bio" value={herosectiondetails2.Bio} type="text" placeholder='Short Bio'required ></textarea>
+                        <input className='border-2 border-[#0C134F] outline-none p-1 rounded-4xl focus:ring-2 focus:ring-[#5F264A] text-purple-900 text-xl' onChange={onchangehandler3} name="mainheading" value={herosectiondetails2.mainheading} type="text" placeholder='Headlines'required />
                     </div>
                 </div>
-                <div>
-                    <button type="submit">Update Hero Section <span>{loading&&<ClipLoader/>}</span></button>
+                <div className='flex justify-center items-center gap-2 text-xl flex-col mt-2'>
+                    <div className='mb-4'>
+                        <label className='text-purple-950' htmlFor="name">Add Short Bio</label>
+                    </div>
+                    <div>
+                        <textarea className='border-2 border-[#0C134F] outline-none p-2 rounded-lg focus:ring-2 focus:ring-[#5F264A] text-purple-900 text-xl' rows={5} cols={25} onChange={onchangehandler3} name="Bio" value={herosectiondetails2.Bio} type="text" placeholder='Short Bio'required ></textarea>
+                    </div>
+                </div>
+                <div className='mb-4'>
+                    <button className='bg-[#FF0000] mt-3 p-2 rounded-xl text-purple-300 hover:scale-110 transition ease-in-out duration-200' type="submit">Update Hero Section <span>{loading&&<ClipLoader color='#3E2C41'/>}</span></button>
                 </div>
 
 
             </form>
+            </div>
+            </div>
     </div>
   )
 }

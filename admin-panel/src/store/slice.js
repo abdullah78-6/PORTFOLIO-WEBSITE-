@@ -33,6 +33,7 @@ const adminslice=createSlice({
         skilllist:[],
         projectlist:[],
         Herolist:[],
+        resumelist:[],
         herosectionid:""
         
         
@@ -81,6 +82,9 @@ const adminslice=createSlice({
     setherosectionid(state,action){
         state.herosectionid=action.payload;
 
+    },
+    setresumelist(state,action){
+        state.resumelist=action.payload;
     }
     
     

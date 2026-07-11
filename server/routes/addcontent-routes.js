@@ -1,5 +1,5 @@
 import express from "express"
-import { Addheroimage, Addproject, Addskill, DeleteHerosection, DeleteProject, DeleteSkill, Getherosection, Getproject, Getskill, Updateherosection } from "../controller/Addcontent.js";
+import { Addheroimage, Addproject, Addresume, Addskill, DeleteHerosection, DeleteProject, DeleteResume, DeleteSkill, Getherosection, Getproject, GetResume, Getskill, Updateherosection } from "../controller/Addcontent.js";
 import multer from "multer"
 const Addcontentrouter=express.Router();
 const storage=multer.diskStorage({
@@ -19,4 +19,7 @@ Addcontentrouter.delete("/deleteskill",DeleteSkill);
 Addcontentrouter.delete("/deleteproject",DeleteProject);
 Addcontentrouter.delete("/deletehero",DeleteHerosection);
 Addcontentrouter.put("/update",upload.single("image"),Updateherosection);
+Addcontentrouter.post("/resume",upload.single("image"),Addresume);
+Addcontentrouter.get("/get_resume",GetResume);
+Addcontentrouter.delete("/delete_resume",DeleteResume);
 export default Addcontentrouter;
