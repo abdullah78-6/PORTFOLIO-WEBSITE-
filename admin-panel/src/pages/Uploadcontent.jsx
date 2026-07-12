@@ -1,12 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import axios from "axios"
 import {toast} from "react-hot-toast"
 import { control } from '../store/slice'
 import {useDispatch,useSelector} from "react-redux"
+import workerSrc from "pdfjs-dist/build/pdf.worker?url";
 import assestsimg from '../assets/assests'
 import { ClipLoader } from "react-spinners";
+import {Document,Page,pdfjs} from "react-pdf";
+pdfjs.GlobalWorkerOptions.workerSrc=workerSrc
 const Uploadcontent = ({url}) => {
-    const dispatch=useDispatch();
+useEffect(()=>{
+    pdfjs.GlobalWorkerOptions.workerSrc=workerSrc
+   },[]);
+ const fileref=useRef();
+const dispatch=useDispatch();
     const projectdetails=useSelector(state=>state.main.projectdetails);
     const backendemail=useSelector(state=>state.main.backendemail);
     const[img1,setimg1]=useState(false);
@@ -348,19 +355,25 @@ const Uploadcontent = ({url}) => {
         <div>
             <form onSubmit={InsertResume}  className='flex justify-center items-center flex-col bg-[#5C469C] p-3 rounded-lg flex-wrap'>
                 <div>
-                    {/* <label htmlFor='image2'>
-                        <img className='w-32 h-22 md:w-32 md:h-22 object-cover rounded-xl border-2 border-dashed border-[#950101]   ease-in-out duration-200  transition' alt="upload" src={img4? URL.createObjectURL(img4) : assestsimg.image} />
+                    <label htmlFor='pdf'>
+                    {!img4&&    <img className='w-32 h-22 md:w-32 md:h-22 object-cover rounded-xl border-2 border-dashed border-[#950101]   ease-in-out duration-200  transition' alt="upload" src={assestsimg.image} />}
+                    {img4&&
+                    <Document file={{url:URL.createObjectURL(img4)}}>
+                        <Page   pageNumber={1} width={250}  renderTextLayer={false} renderAnnotationLayer={false}/>
+                    </Document>
+                    }
 
-                    </label> */}
+                    </label>
                     
                 </div>
                 <div>
             <input
-            
-              onChange={(e) => setimg4(e.target.files[0])}
-              
-              type="file"
-              accept=".pdf" 
+            id="pdf"
+            onChange={(e) => setimg4(e.target.files[0])}
+           className='hidden'
+            type="file"
+            ref={fileref}
+            accept=".pdf" 
               />
                 </div>
                 
