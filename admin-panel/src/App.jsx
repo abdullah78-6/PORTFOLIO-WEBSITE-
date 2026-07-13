@@ -44,7 +44,7 @@ return (
       {backendemail&&<Navbar url={backendurl} />}
       <hr className={backendemail?"":"hidden"} />
 
-      <div className={backendemail?"flex":"flex1"}>
+      <div className={backendemail?"flex  ":"flex1"}>
 
         {backendemail && <Sidebar url={backendurl} />}
 
@@ -79,7 +79,7 @@ return (
             element={backendemail ? <Herosection url={backendurl} /> : <Navigate to="/login" />}
           />
           <Route
-            path="/hero_section_update"
+           path="/hero_section_update"
             element={backendemail ? <UpdateHerosection url={backendurl} /> : <Navigate to="/login" />}
           />
           <Route

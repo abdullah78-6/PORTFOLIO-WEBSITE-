@@ -47,7 +47,7 @@ useEffect(()=>{
     Fetch();
 },[projectlist]);
    return (
-  <div className="w-full  p-2 sm:p-2">
+  <div className="w-full  p-2 sm:p-2 font-semibold">
     <div className="mb-4">
       <h1 className="text-2xl sm:text-3xl font-bold text-center capitalize text-cyan-800">
       Portfolio-
@@ -63,57 +63,56 @@ useEffect(()=>{
       <h1 className="text-center  capitalize font-semibold text-red-800 text-2xl">list is empty</h1>
 
     ):(
-      <div className="h-[75vh] overflow-y-auto pr-2  ">
+      <div className="h-[75vh] overflow-y-auto pr-2    text-center">
       {projectlist.map((item, i) => (
         <div
           key={item._id}
-          className="bg-white border border-gray-200 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 p-4 mb-4"
+              className="bg-[#273338] border border-gray-200 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 p-4 mb-4 text-center"
         >
-          <div className="flex flex-row lg:flex-row lg:items-center lg:justify-center gap-4">
+          <div className="flex justify-between items-center gap-9 flex-wrap" >
             
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-green-100 text-green-800 font-bold">
+            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-cyan-300 text-purple-800 font-bold ">
               {i + 1}
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 flex-1">
+            <div className="flex justify-between items-center gap-40 ">
               
-              <div>
-                <p className="text-xs text-gray-500 uppercase">
+              <div className="flex flex-col justify-center items-center gap-0">
+                <p className="text-xs text-gray-300 uppercase ">
                   Project Name
                 </p>
-                <h1 className="text-pink-800 font-semibold break-words">
+                <h1 className="text-purple-600 font-semibold break-words">
                   {item.name}
                 </h1>
               </div>
                   <div>
-                <p className="text-xs text-gray-500 uppercase">
+                <p className="text-xs text-gray-300 uppercase text-center mb-3">
                   Project Image
                 </p>
                 
-                <img  className="w-34 h-24 rounded-4xl" src={item.image}/>
+                <img  className="w-34 h-24 rounded-lg hover:scale-125 transition ease-in-out duration-200" src={item.image}/>
               </div>
               <div>
-                <p className="text-xs text-gray-500 uppercase">
+                <p className="text-xs text-gray-300 uppercase">
                   Project Bio
                 </p>
                 
-               <h1 className="text-pink-800 font-semibold break-words">{item.description}</h1>
+               <h1 className="text-purple-600 font-semibold break-words">{item.description}</h1>
               </div>
-              <div>
+              <div className="flex justify-center items-center gap-3 flex-col">
                 {item.url&&
-                <p className="text-xs text-gray-500 uppercase">
+                <p className="text-xs text-gray-300 uppercase text-center ">
                  Project URL 
                 </p>
                 }     
                 
-             {item.url&&  <a target="_blank" href={item.url}>Live Link</a>}
+             {item.url&&  <a target="_blank" href={item.url} className="text-cyan-700 w-20 hover:underline text-center">Live-Link</a>}
               </div>
             </div>
-
-            
-              <h1 className="font-bold text-lg text-red-800" onClick={()=>Delete(item._id)}>
-               <FaTrash/>
+        <h1 className="font-bold text-lg text-red-800 " onClick={()=>Delete(item._id)}>
+               <FaTrash className="text-3xl hover:scale-150 transition ease-in-out duration-200"/>
               </h1>
+            
           </div>
         </div>
       ))}

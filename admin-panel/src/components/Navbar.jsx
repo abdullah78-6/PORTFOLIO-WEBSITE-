@@ -36,9 +36,8 @@ const Navbar=({url})=>{
             <Link className="text-pink-100 bg-purple-600 p-2 rounded-3xl hover:scale-110 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/contacts">Contacts</Link>
             <Link className="text-pink-100 bg-purple-600 p-2 rounded-3xl hover:scale-110 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/projects">Projects</Link>
             <Link className="text-pink-100 bg-purple-600 p-2 rounded-3xl hover:scale-110 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/herosection">Hero Section Content</Link>
-            
-           {!backendemail? <Link to="/login" className="bg-blue-700 text-white p-2 rounded-3xl hover:bg-blue-900 transition ease-in-out duration-200" >LOGIN</Link>:<button className="bg-red-700 text-white p-2 rounded-3xl hover:bg-red-900 transition ease-in-out duration-200" onClick={Logout}>LOGOUT</button>}
-            {backendemail && (
+            {!backendemail? <Link to="/login" className="bg-blue-700 text-white p-2 rounded-3xl hover:bg-blue-900 transition ease-in-out duration-200" >LOGIN</Link>:<button className="bg-red-700 text-white p-2 rounded-3xl hover:bg-red-900 transition ease-in-out duration-200" onClick={Logout}>LOGOUT</button>} 
+             {backendemail && (
     <div className="flex items-center justify-between gap-3 cursor-poiter flex-wrap">
       <div>
         <p className="text-sm text-white/80">Welcome</p>
@@ -52,7 +51,21 @@ const Navbar=({url})=>{
       </div>
     </div>
   )}
-        </ul>
+       </ul>
+      {backendemail && (
+    <div className="lg:flex lg:items-center lg:justify-between lg:gap-3 lg:cursor-poiter lg:flex-wrap hidden   xl:flex xl:items-center xl:justify-between xl:gap-3 xl:cursor-poiter xl:flex-wrap        md:flex md:items-center md:justify-between md:gap-3 md:cursor-poiter md:flex-wrap">
+      <div>
+        <p className="text-sm text-white/80">Welcome</p>
+        <h2 className="text-lg font-bold text-white">
+          Abdullah
+        </h2>
+      </div>
+
+      <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-purple-950 font-bold text-lg shadow-md cursor-pointer ">
+        {backendemail.slice(0, 1).toUpperCase()}
+      </div>
+    </div>
+  )}
         
     </div>
 

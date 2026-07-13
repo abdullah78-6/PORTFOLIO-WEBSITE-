@@ -49,7 +49,7 @@ useEffect(()=>{
     Fetch();
 },[resumelist]);
    return (
-  <div className="w-full  p-2 sm:p-2">
+  <div className="w-full   ">
     <div className="mb-4">
       <h1 className="text-2xl sm:text-3xl font-bold text-center capitalize text-cyan-800">
       Portfolio-
@@ -69,18 +69,18 @@ useEffect(()=>{
       {resumelist.map((item, i) => (
         <div
           key={item._id}
-          className="bg-white border border-gray-200 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 p-4 mb-4"
+          className="bg-[#273338] border border-gray-200 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 p-4 mb-4 text-center capitalize ml-3 mr-3"
         >
           <div className="flex flex-row lg:flex-row lg:items-center lg:justify-center gap-4">
             
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-green-100 text-green-800 font-bold">
+            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-cyan-300 text-purple-800 font-bold">
               {i + 1}
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 flex-1">
-              <a  className="text-cyan-800  hover:underline " href={item.image} target="_blank">Check Resume</a>
+            <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 flex-1">
+              <a  className="text-purple-500  hover:underline " href={item.image} target="_blank">go to  Resume</a>
               </div>
-              <h1>abdullah resume {i+1}</h1>
+              <h1 className="text-cyan-300">abdullah resume {i+1}</h1>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 flex-1">
                 
               <img src="\public\icons8-resume-64.png" alt="resume icon "/>
@@ -88,7 +88,7 @@ useEffect(()=>{
 
             
               <h1 className="font-bold text-lg text-red-800" onClick={()=>Delete(item._id)}>
-               <FaTrash/>
+               <FaTrash className="text-3xl hover:scale-150 transition ease-in-out duration-200"/>
               </h1>
           </div>
         </div>
