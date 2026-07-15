@@ -2,12 +2,18 @@ import {createSlice} from "@reduxjs/toolkit"
 const clientslice=createSlice({
     name:"client",
     initialState:{
-        counter:0
+        Contactdetails:{
+            name:"",
+            email:"",
+            message:""
+        }
 },
     reducers:{
-        setcounter(state){
-            state.counter+=1;
+        setContactdetails(state,action){
+            const {name,value}=action.payload;
+            state.Contactdetails[name]=value;
         }
+        
 
     }
 })

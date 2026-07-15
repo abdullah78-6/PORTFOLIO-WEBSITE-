@@ -5,6 +5,7 @@ import "dotenv/config";
 import cors from "cors"
 import cookieParser from "cookie-parser";
 import Addcontentrouter from "./routes/addcontent-routes.js";
+import ContactRouter from "./routes/Contact-routes.js";
 const app=express();
 app.use(cors({
     origin:["http://localhost:5173","http://localhost:5174"],
@@ -15,6 +16,7 @@ app.use(cookieParser());
 Dbconnection();
 app.use("/api/auth",Adminauthrouter);
 app.use("/api/admin",Addcontentrouter);
+app.use("/api/client",ContactRouter);
 const port=process.env.PORT;
 app.get("/",(req,res)=>{
     res.json({status:true,message:"SEVER IS READY "});
