@@ -33,6 +33,7 @@ const Navbar=({url})=>{
             <Link className="text-pink-100 bg-purple-600 p-2 rounded-3xl hover:scale-110 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/upload">Upload Section</Link>
             <Link className="text-pink-100 bg-purple-600 p-2 rounded-3xl hover:scale-110 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/skills">Skills</Link>
             <Link className="text-pink-100 bg-purple-600 p-2 rounded-3xl hover:scale-110 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/resume">Resume</Link>
+            <Link className="text-pink-100 bg-purple-600 p-2 rounded-3xl hover:scale-110 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/achivements">Achievements</Link>
             <Link className="text-pink-100 bg-purple-600 p-2 rounded-3xl hover:scale-110 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/contacts">Contacts</Link>
             <Link className="text-pink-100 bg-purple-600 p-2 rounded-3xl hover:scale-110 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/projects">Projects</Link>
             <Link className="text-pink-100 bg-purple-600 p-2 rounded-3xl hover:scale-110 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/herosection">Hero Section Content</Link>

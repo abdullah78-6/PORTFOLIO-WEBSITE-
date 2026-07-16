@@ -4,6 +4,7 @@ import {useDispatch} from "react-redux"
 import { useSelector } from 'react-redux'
 import Contact from './pages/Contact'
 import Footer from './components/Footer'
+import Navbar from './components/Navbar'
 const App = () => {
   const dispatch=useDispatch();
   const serverurl="http://localhost:9000"
@@ -21,6 +22,7 @@ const themecolors={
 
   return (
     <div>
+      <Navbar/>
       <Contact url={serverurl}/>
       <Footer />
       

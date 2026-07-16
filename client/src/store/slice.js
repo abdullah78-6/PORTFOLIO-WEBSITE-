@@ -6,12 +6,20 @@ const clientslice=createSlice({
             name:"",
             email:"",
             message:""
-        }
+        },
+        navbarclass:"",
+        mobilemenu:true
 },
     reducers:{
         setContactdetails(state,action){
             const {name,value}=action.payload;
             state.Contactdetails[name]=value;
+        },
+        setnavbarclass(state,action){
+            state.navbarclass=action.payload;
+        },
+        setmobilemenu(state,action){
+            state.mobilemenu=action.payload;
         }
         
 
