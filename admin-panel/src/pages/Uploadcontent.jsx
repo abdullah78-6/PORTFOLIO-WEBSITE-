@@ -7,6 +7,7 @@ import workerSrc from "pdfjs-dist/build/pdf.worker?url";
 import assestsimg from '../assets/assests'
 import { ClipLoader } from "react-spinners";
 import {Document,Page,pdfjs} from "react-pdf";
+import Achievements from './Achievements'
 pdfjs.GlobalWorkerOptions.workerSrc=workerSrc
 const Uploadcontent = ({url}) => {
 useEffect(()=>{
@@ -25,7 +26,9 @@ const dispatch=useDispatch();
     const [loading3,setloading3]=useState(false);
     const [img4,setimg4]=useState(false);
     const [loading4,setloading4]=useState(false);
+    const [loadingeducation,setloadingeducation]=useState(false);
     const herosectiondetails=useSelector(state=>state.main.herosectiondetails);
+    const education=useSelector(state=>state.main.education);
     const onchangehandler1=(e)=>{
         dispatch(control.setprojectdetails({
             name:e.target.name,
@@ -47,6 +50,13 @@ const dispatch=useDispatch();
         }))
        
         
+    }
+    const onchangehandler4=(e)=>{
+        dispatch(control.seteducation({
+            name:e.target.name,
+            value:e.target.value
+
+        }))
     }
     const Addproject=async(e)=>{
         e.preventDefault();
@@ -216,11 +226,46 @@ const dispatch=useDispatch();
         }
 
     }
+    const Submiteducation=async(e)=>{
+        e.preventDefault();
+         if(!backendemail){
+         toast.error("Admin Login Required");
+            return ;
+        }
+        try {
+               setloadingeducation(true);
+          const response=await axios.post(
+        
+        url+"/api/client/add_education",
+        education,
+        {
+            withCredentials:true
+        }
+     );
+     
+     if(response.data.status){
+        toast.success(response.data.result);
+        setloadingeducation(false);
+     }
+     else{
+        toast.error(response.data.result);
+        setloadingeducation(false);
+     }
+
+            
+        } catch (error) {
+            toast.error(error.message);
+            console.log("upload education  error",error);
+        }
+        
+
+    }
   return (
         
-    <div className='font-semibold capitalize' >
+    <div className='font-semibold capitalize ' >
     <h1 className='text-center text-4xl text-purple-700 '>add resume data in your portfolio</h1>
-    <div className='flex justify-center items-center flex-wrap mt-10 gap-15 ml-4   '>
+    <div className='h-screen overflow-auto'>
+    <div className='flex justify-center items-center flex-wrap mt-10 gap-15 ml-4  flex-col'>
         <div >
             <form onSubmit={Addproject} className='flex justify-center items-center flex-col bg-[#5C469C] p-7 rounded-lg flex-wrap'>
                 <div>
@@ -383,6 +428,51 @@ const dispatch=useDispatch();
 
             </form>
         </div>
+        <div >
+            <form onSubmit={Submiteducation}  className='flex justify-center items-center flex-col bg-[#5C469C] p-7 rounded-lg flex-wrap'>
+                <div className='flex justify-center items-center gap-2 text-xl flex-col mt-2'>
+                <div className='mb-4'>
+                    <label className='text-purple-950' htmlFor='name'> Degree name</label>
+                </div>
+                <div>
+                    <input onChange={onchangehandler4} name="degreename" value={education.degreename} className='border-2 border-[#0C134F] outline-none p-1 rounded-4xl focus:ring-2 focus:ring-[#5F264A] text-purple-900 text-xl'  type="text" placeholder='eg:bachelor in xyz' required/>
+                </div>
+                </div>
+                <div className='flex justify-center items-center gap-2 text-xl flex-col'>
+                <div className='mb-4'>
+                    <label className='text-purple-950' htmlFor='desc'>College Name or School Name</label>
+                </div>
+                <div>
+                    <input onChange={onchangehandler4} name="collegename" value={education.collegename} className='border-2 border-[#0C134F] outline-none p-1 rounded-4xl focus:ring-2 focus:ring-[#5F264A] text-purple-900 text-xl'  type="text" placeholder='College Name,Location' required/>
+                </div>
+                </div>
+                <div className='flex justify-center items-center gap-2 text-xl flex-col'>
+                <div className='mb-4'>
+                    <label className='text-purple-950' htmlFor='url'>Cgpi In College or Percentage In School </label>
+                </div>
+                <div>
+                    <input onChange={onchangehandler4} name="cgpi" value={education.cgpi} className='border-2 border-[#0C134F] outline-none p-1 rounded-4xl focus:ring-2 focus:ring-[#5F264A] text-purple-900 text-xl'  type='text' placeholder='Educationl grades' required/>
+                </div>
+               
+                <div className='mb-4'>
+                    <label className='text-purple-950' htmlFor='url'>Duration Timeline</label>
+                </div>
+                <div>
+                    <input onChange={onchangehandler4} name="duration" value={education.duration} className='border-2 border-[#0C134F] outline-none p-1 rounded-4xl focus:ring-2 focus:ring-[#5F264A] text-purple-900 text-xl'  type='text' placeholder='xxxx-yyyy' required/>
+                </div>
+                </div>
+                <div className='mb-4 '>
+                    <button className='bg-[#FF0000] mt-3 p-2 rounded-xl text-purple-300 hover:scale-110 transition ease-in-out duration-200' type="submit">Add Education<span>{loadingeducation&&<ClipLoader color='#3E2C41' />}</span></button>
+                </div>
+                 
+
+
+            </form>
+            </div>
+            <Achievements url={url}/>
+        
+        
+      </div>
       </div>
     </div>
   )

@@ -1,5 +1,7 @@
 import contactmodel from "../models/Contact-model.js";
 import  {Resend} from "resend";
+import educationmodel from "../models/education-model.js";
+import achivementmodel from "../models/Achievement-model.js";
 const resend=new Resend(process.env.RESEND_KEY);
 const Addcontact=async(req,res)=>{
     const {name,message,email}=req.body;
@@ -159,5 +161,56 @@ const Getcontact=async(req,res)=>{
     
 
 }
-export{Addcontact,Deletecontact,Getcontact}
+const Addeducation=async(req,res)=>{
+     try {
+        const {degreename,collegename,cgpi,duration}=req.body;
+         if(!degreename||!collegename||!cgpi||!duration){
+             return res.json({status:false,result:"ALL FIELDS ARE REQUIRED"});
+         }
+         const educationstore=new educationmodel({
+             degreename,
+             collegename,
+             cgpi,
+             duration
+             
+         })
+         
+             await educationstore.save();
+           return   res.json({status:true,result:"Education Added Successfully"})
+             
+         } catch (error) {
+             console.log("ADD EDUCATION ERROR ",error);
+           return  res.json({status:false,result:"ADD EDUCATION ERROR "});
+             
+         }
+  
+
+}
+const Addachievements=async(req,res)=>{
+try {
+      const {headline,description}=req.body;
+      
+        
+         if(!headline||!description){
+             return res.json({status:false,result:"ALL FIELDS ARE REQUIRED"});
+         }
+         const achivementstore=new achivementmodel({
+             headline:headline,
+             description:description,
+             
+             
+         })
+         
+             await achivementstore.save();
+           return   res.json({status:true,result:"Achivement Added Successfully"})
+             
+         } catch (error) {
+             console.log("ADD Achivement ERROR ",error);
+           return  res.json({status:false,result:"ADD ACHIVEMENT ERROR "});
+             
+         }
+  
+
+}
+export{Addcontact,Deletecontact,Getcontact,Addeducation,Addachievements}
 

@@ -13,6 +13,7 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(cookieParser());
+
 Dbconnection();
 app.use("/api/auth",Adminauthrouter);
 app.use("/api/admin",Addcontentrouter);

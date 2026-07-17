@@ -30,6 +30,16 @@ const adminslice=createSlice({
             mainheading:"",
             Bio:""
         },
+        education:{
+            degreename:"",
+            collegename:"",
+            cgpi:"",
+            duration:""
+        },
+        achievements:{
+            headline:"",
+            description:""
+        },
         skilllist:[],
         projectlist:[],
         Herolist:[],
@@ -89,6 +99,15 @@ const adminslice=createSlice({
     },
     setcontactdetails(state,action){
         state.contactdetails=action.payload;
+    },
+    seteducation(state,action){
+        const {name,value}=action.payload;
+        state.education[name]=value;
+        
+    },
+    setachievements(state,action){
+        const {name,value}=action.payload;
+        state.achievements[name]=value;
     }
     
     
