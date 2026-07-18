@@ -212,5 +212,76 @@ try {
   
 
 }
-export{Addcontact,Deletecontact,Getcontact,Addeducation,Addachievements}
+const getachievement=async(req,res)=>{
+  try {
+                const achievement=await achivementmodel.find();
+                
+                return res.json({status:true,answer:achievement});
+        
+            } catch (error) {
+                console.log("get achievement error ",error);
+                res.json({status:false,message:error.message});
+                
+            }
+
+
+}
+const deleteachievement=async(req,res)=>{
+    try {
+            const {id}=req.body;
+            const achievement=await achivementmodel.findByIdAndDelete({_id:id});
+            if(achievement){
+                return res.json({status:true,message:"DELETE SUCCESSFULLY"});
+            }
+            else{
+                return res.json({status:false,message:"DATA NOT DELETE"});
+            }
+            
+    
+            
+        } catch (error) {
+            console.log(error);
+            res.json({status:false,message:"delete achievement error"});
+            
+            
+        }
+
+
+}
+const geteducation=async(req,res)=>{
+  try {
+                const education=await educationmodel.find();
+                
+                return res.json({status:true,answer:education});
+        
+            } catch (error) {
+                console.log("get education error ",error);
+                res.json({status:false,message:error.message});
+                
+            }
+
+
+}
+const deleteeducation=async(req,res)=>{
+  try {
+            const {id}=req.body;
+            const education=await educationmodel.findByIdAndDelete({_id:id});
+            if(education){
+                return res.json({status:true,message:"DELETE SUCCESSFULLY"});
+            }
+            else{
+                return res.json({status:false,message:"DATA NOT DELETE"});
+            }
+            
+    
+            
+        } catch (error) {
+            console.log(error);
+            res.json({status:false,message:"delete education error"});
+            
+            
+        }
+
+}
+export{Addcontact,Deletecontact,Getcontact,Addeducation,Addachievements,getachievement,deleteachievement,geteducation,deleteeducation}
 

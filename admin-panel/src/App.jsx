@@ -15,7 +15,8 @@ import Herosection from './pages/Herosection'
 import UpdateHerosection from './pages/UpdateHerosection'
 import Contacts from './pages/Contacts'
 import Resume from './pages/Resume'
-import Acheivements from './pages/Acheivements'
+import Acheivements from './pages/Acheivements-display'
+import Education from './pages/Education'
 const App = () => {
   const backendurl = "http://localhost:9000"
   const backendemail = useSelector(state => state.main.backendemail)
@@ -94,6 +95,10 @@ return (
           <Route
             path="/achivements"
             element={backendemail ? <Acheivements url={backendurl} /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/education"
+            element={backendemail ? <Education url={backendurl} /> : <Navigate to="/login" />}
           />
 
         </Routes>

@@ -45,7 +45,9 @@ const adminslice=createSlice({
         Herolist:[],
         resumelist:[],
         herosectionid:"",
-        contactdetails:[]
+        contactdetails:[],
+        achievementetails:[],
+        educationdetails:[]
         
         
     },
@@ -108,6 +110,12 @@ const adminslice=createSlice({
     setachievements(state,action){
         const {name,value}=action.payload;
         state.achievements[name]=value;
+    },
+    setachievementetails(state,action){
+        state.achievementetails=action.payload;
+    },
+    seteducationdetails(state,action){
+        state.educationdetails=action.payload;
     }
     
     

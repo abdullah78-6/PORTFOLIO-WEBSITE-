@@ -4,19 +4,19 @@ import {useDispatch,useSelector} from "react-redux"
 import { control } from "../store/slice";
 import toast from "react-hot-toast"
 import { FaTrash } from "react-icons/fa";
-const Contact=({url})=>{
+const Education=({url})=>{
 const dispatch=useDispatch();
 const backendemail=useSelector(state=>state.main.backendemail);
-const contactdetails=useSelector(state=>state.main.contactdetails);
+const educationdetails=useSelector(state=>state.main.educationdetails);
 const Fetch=async()=>{
         try {
-            const res=await axios.get(url+"/api/client/get_contact",{
+            const res=await axios.get(url+"/api/client/get_education",{
                 withCredentials:true
             })
             if(res.data.status){
              
                 
-                dispatch(control.setcontactdetails(res.data.contactlist))
+                dispatch(control.seteducationdetails(res.data.answer))
             }
             else{
                 toast.error(res.data.message);
@@ -30,7 +30,7 @@ const Fetch=async()=>{
 
     }
     const Delete=async(id)=>{
-      const response=await axios.delete(url+"/api/client/delete_contact",{
+      const response=await axios.delete(url+"/api/client/del_education",{
         data:{id:id},
       withCredentials:true
       })
@@ -45,68 +45,27 @@ const Fetch=async()=>{
     }
 useEffect(()=>{
     Fetch();
-},[contactdetails]);
+},[educationdetails]);
 
-const exprtcsv=()=>{
-  if(!backendemail){
-    toast.error("Admin Login Required");
-    return ;
-  }
-  if(contactdetails.length===0){
-    toast.error("No Contact Found");
-    return ;
-  }
-  // csv content self
-  const headers=["Name","Email","Message"];
-  const csvrows=contactdetails.map((item)=>[
-    item.name||"",
-    item.email||"",
-    item.message||""
-
-  ])
-  const csvcontent=[
-    headers.join(","),
-    ...csvrows.map((row)=>
-      row
-      .map((field)=>`"${String(field).replace(/"/g,'""')}"`)
-      .join(",")
-    )
-  ].join("\n");
-  // csv text self
-  const blob=new Blob([csvcontent],{type:"text/csv;charset=utf-8;"});
-  const url=URL.createObjectURL(blob);
-  // DOWNLOAD LINK SELF
-  const link=document.createElement("a");
-  link.setAttribute("href",url);
-  link.setAttribute("download","CONTACT_DETAILS_PORTFOLIO.csv");
-  link.style.visibility="hidden";
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-
-    
-
-}
    return (
   <div className="w-full  font-semibold ">
     <div className="mb-4 flex justify-center items-center gap-14 mt-5">
       <h1 className="text-2xl sm:text-3xl font-bold text-center capitalize text-cyan-800">
       Portfolio-
-        <span className="text-purple-800">Contact's</span>
+        <span className="text-purple-800">Education Section</span>
       </h1>
-      <button onClick={exprtcsv} className="bg-yellow-600 text-purple-900 p-2 rounded-xl uppercase text-xl hover:bg-yellow-700 transition ease-in-out duration-200">export csv</button>
-    </div>
+ </div>
    {!backendemail?(
       <h1 className="text-center text-2xl font-semibold text-red-700 mt-10">
             ADMIN LOGIN REQUIRED
           </h1>
 
-    ):contactdetails.length===0?(
+    ):educationdetails.length===0?(
       <h1 className="text-center  capitalize font-semibold text-red-800 text-2xl">list is empty</h1>
 
     ):(
       <div className="h-[75vh] overflow-y-auto pr-2  ">
-      {contactdetails.map((item, i) => (
+      {educationdetails.map((item, i) => (
         <div
           key={item._id}
           className="bg-[#273338] border border-gray-200 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 p-4 mb-4 text-center capitalize ml-3 mr-3"
@@ -118,13 +77,21 @@ const exprtcsv=()=>{
             </div>
 
             <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 flex-1">
-              <h1 className="text-purple-400">{item.name}</h1>
+              <h1 className="text-purple-400">{item.degreename}</h1>
             
               </div>
-              <p className="text-cyan-300">{item.email}</p>
+              <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 flex-1">
+              <h1 className="text-purple-400">{item.cgpi}</h1>
+            
+              </div>
+              <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 flex-1">
+              <h1 className="text-purple-400">{item.duration}</h1>
+            
+              </div>
+              <p className="text-cyan-300">{item.collegename}</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 flex-1">
                 
-              <p className="text-purple-400">{item.message}</p>
+              
     </div>
 
             
@@ -143,4 +110,4 @@ const exprtcsv=()=>{
 );
 
 }
-export default Contact;
+export default Education;

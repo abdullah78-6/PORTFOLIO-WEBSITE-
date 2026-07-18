@@ -58,6 +58,7 @@ useEffect(()=>{
       Portfolio-
         <span className="text-purple-800">Hero Section Details</span>
       </h1>
+      <h1 className="text-center text-red-700 text-xl mt-5">ADD ONE HERO SECTION AT A TIME IN A PORTFOLIO </h1>
     </div>
    {!backendemail?(
       <h1 className="text-center text-2xl font-semibold text-red-700 mt-10">
