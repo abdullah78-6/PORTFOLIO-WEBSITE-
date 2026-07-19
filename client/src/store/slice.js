@@ -8,12 +8,16 @@ const clientslice=createSlice({
             message:""
         },
         navbarclass:"",
-        mobilemenu:true
+        mobilemenu:true,
+        Herosection:[]
 },
     reducers:{
         setContactdetails(state,action){
             const {name,value}=action.payload;
             state.Contactdetails[name]=value;
+        },
+        setHerosection(state,action){
+            state.Herosection=action.payload;
         },
         setnavbarclass(state,action){
             state.navbarclass=action.payload;

@@ -71,13 +71,13 @@ useEffect(()=>{
         >
           <div className="flex justify-between items-center gap-9 flex-wrap" >
             
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-cyan-300 text-purple-800 font-bold ">
+            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-cyan-300 text-purple-800 font-bold flex-wrap">
               {i + 1}
             </div>
 
-            <div className="flex justify-between items-center gap-40 ">
+            <div className="flex justify-between items-center gap-40 flex-wrap ">
               
-              <div className="flex flex-col justify-center items-center gap-0">
+              <div className="flex flex-col justify-center items-center gap-0 flex-wrap">
                 <p className="text-xs text-gray-300 uppercase ">
                   Project Name
                 </p>
@@ -99,7 +99,7 @@ useEffect(()=>{
                 
                <h1 className="text-purple-600 font-semibold break-words">{item.description}</h1>
               </div>
-              <div className="flex justify-center items-center gap-3 flex-col">
+              <div className="flex justify-center items-center gap-3 flex-col flex-wrap">
                 {item.url&&
                 <p className="text-xs text-gray-300 uppercase text-center ">
                  Project URL 

@@ -5,6 +5,8 @@ import { useSelector } from 'react-redux'
 import Contact from './pages/Contact'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
+import Hero from './pages/Hero-section'
+import OurWork from './pages/Ourwork'
 const App = () => {
   const dispatch=useDispatch();
   const serverurl="http://localhost:9000"
@@ -23,6 +25,8 @@ const themecolors={
   return (
     <div>
       <Navbar/>
+      <Hero url={serverurl}/>
+      <OurWork/>
       <Contact url={serverurl}/>
       <Footer />
       

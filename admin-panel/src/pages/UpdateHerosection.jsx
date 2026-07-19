@@ -73,8 +73,8 @@ const UpdateHerosection = ({url})=>{
 return (
     <div className='font-semibold capitalize flex justify-center items-center mb-40' >
         <div   >
-            <div className=' mt-3  ml-9 ' >
-    <form className='flex justify-center items-center flex-col bg-[#5C469C] p-20 rounded-lg flex-wrap' onSubmit={Update}>
+            <div className=' mt-3  ml-3 xl:ml-9 md:ml-5 lg:ml-5  ' >
+    <form className='flex justify-center items-center flex-col bg-[#5C469C] p-2 md:p-5 xl:p-20 lg:p-15  rounded-lg flex-wrap' onSubmit={Update}>
                 <div >
                     <label htmlFor='image3'>
                         <img className='w-32 h-22 md:w-32 md:h-22 object-cover rounded-lg border-3 border-dashed border-[#950101]  transition ease-in-out duration-200' alt="upload" src={img4? URL.createObjectURL(img4) : assestsimg.image} />

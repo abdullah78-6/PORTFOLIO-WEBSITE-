@@ -111,7 +111,7 @@ const Login=({url}) => {
                         <label className='block text-xl' htmlFor="email">email</label>
                     </div>
                     <div>
-                        <input className='border-2 w-full px-4 py-1 border-black rounded-4xl  focus:ring-2  focus:ring-purple-950 outline-none cursor-pointer' onChange={onchangehandler} name="email" value={logininfo2.email} type="email" placeholder='enter-email' required />
+                        <input className='border-2 w-full px-4 py-1 border-black rounded-4xl text-sm md:text-xl lg:text-xl xl:text-xl  focus:ring-2  focus:ring-purple-950 outline-none cursor-pointer' onChange={onchangehandler} name="email" value={logininfo2.email} type="email" placeholder='enter-email' required />
                     </div>
                     </div>
                     <div className='flex justify-center items-center gap-3  flex-col'>
@@ -125,7 +125,7 @@ const Login=({url}) => {
                     
                     
                     <div className=' relative flex justify-center items-center gap-2 '>
-                        <input className='border-2 w-full px-4 py-1 border-black rounded-4xl p-2 focus:ring-2  focus:ring-purple-950 outline-none cursor-pointer' onChange={onchangehandler} name="password" value={logininfo2.password} type={`${paswordhide?"password":"text"}`} placeholder='enter-password' required />
+                        <input className='border-2 w-full px-4 py-1 border-black rounded-4xl p-2 focus:ring-2  focus:ring-purple-950 outline-none text-sm md:text-xl lg:text-xl xl:text-xl cursor-pointer' onChange={onchangehandler} name="password" value={logininfo2.password} type={`${paswordhide?"password":"text"}`} placeholder='enter-password' required />
                         <div className='absolute right-5 top-1/2 -translate-y-1/2 cursor-pointer text-xl'>
                             {paswordhide?
                         <div >
@@ -140,10 +140,10 @@ const Login=({url}) => {
                     </div>
                     <div className='flex justify-center items-center gap-3 flex-col '>
                     <div>
-                        <button className='bg-gray-900 text-white px-12 py-2 rounded-2xl capitalize text-xl hover:scale-110 transition ease-in-out duration-200 ' type="submit">login</button>
+                        <button className='bg-gray-900 text-white px-12 py-1 md:py-2 lg:py-2 xl:py-2 rounded-2xl capitalize text-xl hover:scale-110 transition ease-in-out duration-200 ' type="submit">login</button>
                     </div>
                     <div>
-                        <button type="button" onClick={Googlelogin} className=' bg-purple-950 text-white px-13 py-3 rounded-2xl  capitalize hover:scale-110 transition ease-in-out duration-200 flex justify-center items-center gap-4 text-sm '>
+                        <button type="button" onClick={Googlelogin} className=' bg-purple-950 text-white px-3 md:px-13 lg:px-13 xl:px-13 py-3 rounded-2xl  capitalize hover:scale-110 transition ease-in-out duration-200 flex justify-center items-center gap-4 text-sm '>
                             <span>
                              < FcGoogle className='text-xl'/> 
                              </span>

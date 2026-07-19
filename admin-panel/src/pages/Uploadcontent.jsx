@@ -263,11 +263,11 @@ const dispatch=useDispatch();
   return (
         
     <div className='font-semibold capitalize ' >
-    <h1 className='text-center text-4xl text-purple-700 '>add resume data in your portfolio</h1>
+    <h1 className='text-center text-xm lg:text-3xl md:text-3xl xl:text-3xl    text-purple-700 '>add resume data in your portfolio</h1>
     <div className='h-screen overflow-auto'>
     <div className='flex justify-center items-center flex-wrap mt-10 gap-15 ml-4  flex-col'>
         <div >
-            <form onSubmit={Addproject} className='flex justify-center items-center flex-col bg-[#5C469C] p-7 rounded-lg flex-wrap'>
+            <form onSubmit={Addproject} className='flex justify-center items-center flex-col bg-[#5C469C] p-3 md:p-7 lg:p-7 xl:p-7 rounded-lg flex-wrap'>
                 <div>
                     <label htmlFor='image'>
                         <img className='w-32 h-22 md:w-32 md:h-22 object-cover rounded-lg border-3 border-dashed border-[#950101]  transition ease-in-out duration-200' alt="upload" src={img1? URL.createObjectURL(img1) : assestsimg.image} />
@@ -349,7 +349,7 @@ const dispatch=useDispatch();
             </form>
         </div>
         <div>
-            <form onSubmit={Addheroimage} className='flex justify-center items-center flex-col bg-[#5C469C] p-3 rounded-lg flex-wrap'>
+            <form onSubmit={Addheroimage} className='flex justify-center items-center flex-col bg-[#5C469C] p-2 md:p-3 xl:p-3 lg:p-3 rounded-lg flex-wrap'>
                 <div>
                     <label htmlFor='image3'>
                         <img className='w-32 h-22 md:w-32 md:h-22 object-cover rounded-xl border-2 border-dashed border-[#950101]   ease-in-out duration-200  transition' alt="upload" src={img3? URL.createObjectURL(img3) : assestsimg.image} />
@@ -429,7 +429,7 @@ const dispatch=useDispatch();
             </form>
         </div>
         <div >
-            <form onSubmit={Submiteducation}  className='flex justify-center items-center flex-col bg-[#5C469C] p-7 rounded-lg flex-wrap'>
+            <form onSubmit={Submiteducation}  className='flex justify-center items-center flex-col bg-[#5C469C] p-2 xl:p-7 md:p-7 lg:p-7   rounded-lg flex-wrap'>
                 <div className='flex justify-center items-center gap-2 text-xl flex-col mt-2'>
                 <div className='mb-4'>
                     <label className='text-purple-950' htmlFor='name'> Degree name</label>

@@ -70,18 +70,18 @@ useEffect(()=>{
           key={item._id}
           className="bg-[#273338] border border-gray-200 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 p-4 mb-4 text-center capitalize ml-3 mr-3"
         >
-          <div className="flex flex-row lg:flex-row lg:items-center lg:justify-center gap-4">
+          <div className="flex flex-row lg:flex-row lg:items-center lg:justify-center gap-4 flex-wrap">
             
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-cyan-300 text-purple-800 font-bold">
+            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-cyan-300 text-purple-800 font-bold flex-wrap">
               {i + 1}
             </div>
 
-            <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 flex-1">
+            <div className="  flex flex-wrap grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 flex-1">
               <h1 className="text-purple-400">{item.headline}</h1>
             
               </div>
               <p className="text-cyan-300">{item.description}</p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 flex-1">
+              <div className="flex flex-wrap  grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 flex-1">
                 
               
     </div>

@@ -89,12 +89,12 @@ const exprtcsv=()=>{
 }
    return (
   <div className="w-full  font-semibold ">
-    <div className="mb-4 flex justify-center items-center gap-14 mt-5">
+    <div className="mb-4 flex justify-center items-center gap-8 mt-5">
       <h1 className="text-2xl sm:text-3xl font-bold text-center capitalize text-cyan-800">
       Portfolio-
         <span className="text-purple-800">Contact's</span>
       </h1>
-      <button onClick={exprtcsv} className="bg-yellow-600 text-purple-900 p-2 rounded-xl uppercase text-xl hover:bg-yellow-700 transition ease-in-out duration-200">export csv</button>
+      <button onClick={exprtcsv} className="bg-yellow-600 mr-9 text-purple-900 p-1 xl:p-2 lg:p-2 md:p-2 rounded-xl uppercase text-sm lg:text-xl md:text-xl xl:text-xl  hover:bg-yellow-700 transition ease-in-out duration-200">export csv</button>
     </div>
    {!backendemail?(
       <h1 className="text-center text-2xl font-semibold text-red-700 mt-10">
@@ -111,9 +111,9 @@ const exprtcsv=()=>{
           key={item._id}
           className="bg-[#273338] border border-gray-200 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 p-4 mb-4 text-center capitalize ml-3 mr-3"
         >
-          <div className="flex flex-row lg:flex-row lg:items-center lg:justify-center gap-4">
+          <div className="flex flex-row lg:flex-row lg:items-center lg:justify-center gap-4 flex-wrap">
             
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-cyan-300 text-purple-800 font-bold">
+            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-cyan-300 text-purple-800 font-bold flex-wrap">
               {i + 1}
             </div>
 
@@ -121,10 +121,10 @@ const exprtcsv=()=>{
               <h1 className="text-purple-400">{item.name}</h1>
             
               </div>
-              <p className="text-cyan-300">{item.email}</p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 flex-1">
+              <p className="text-cyan-300 lowercase">{item.email}</p>
+              <div className="flex justify-center items-center gap-9 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5  flex-1">
                 
-              <p className="text-purple-400">{item.message}</p>
+              <p className="text-purple-400 w-47 ">{item.message}</p>
     </div>
 
             

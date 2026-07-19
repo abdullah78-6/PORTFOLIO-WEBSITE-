@@ -69,13 +69,13 @@ useEffect(()=>{
           key={item._id}
           className="bg-[#273338] border border-gray-200 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 p-4 mb-4"
         >
-          <div className="flex justify-between items-center gap-9">
+          <div className="flex justify-between items-center gap-9 flex-wrap">
             
             <div className="flex items-center justify-center w-10 h-10  rounded-full bg-cyan-300 text-purple-800 font-bold">
               {i + 1}
             </div>
 
-            <div className="flex justify-between items-center gap-60 ">
+            <div className="flex justify-between items-center gap-60 flex-wrap ">
               
               <div className="flex flex-col justify-center items-center">
                 <p className="text-xs text-gray-300 uppercase">
