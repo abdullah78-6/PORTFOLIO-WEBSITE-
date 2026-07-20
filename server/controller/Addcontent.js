@@ -281,7 +281,8 @@ const Addresume=async(req,res)=>{
        const result=await cloudinary.uploader.upload(req.file.path,{
            folder:"uploads",
            resource_type:"image",
-           timeout:120000
+           timeout:120000,
+           access_mode:"public"
        })
        console.log(result.secure_url);
        fs.unlinkSync(req.file.path);

@@ -399,7 +399,9 @@ const dispatch=useDispatch();
         </div>
         <div>
             <form onSubmit={InsertResume}  className='flex justify-center items-center flex-col bg-[#5C469C] p-3 rounded-lg flex-wrap'>
-                <div>
+                 <h1 className="text-center text-yellow-400 text-sm ">ADD ONE RESUME AT A TIME IN A PORTFOLIO </h1>
+                <div className='mt-2'>
+                   
                     <label htmlFor='pdf'>
                     {!img4&&    <img className='w-32 h-22 md:w-32 md:h-22 object-cover rounded-xl border-2 border-dashed border-[#950101]   ease-in-out duration-200  transition' alt="upload" src={assestsimg.image} />}
                     {img4&&

@@ -35,6 +35,26 @@ const Hero = ({url})=> {
         Fetch();
        
     },[]);
+    const Downloadresume=async()=>{
+      try {
+        const res=await axios.get(url+"/api/admin/get_resume",{
+          withCredentials:true
+        })
+        if(res.data.status){
+          const pdfurl=res.data.resumelist[0].image;
+          window.open(pdfurl,"_blank");
+      }
+        else{
+          toast.error(res.data.message);
+        }
+        
+      } catch (error) {
+        console.log("download resume error",error);
+        
+      }
+
+
+    }
   
     return (
   <div className="font-semibold mt-10 px-6 lg:px-20 min-h-[85vh] flex items-center">
@@ -91,19 +111,18 @@ const Hero = ({url})=> {
             href="#"
             className="hover:scale-110 duration-300"
           >
-            <img
-              className="w-8 "
-              src="LinkedIn.png"
-              alt="LinkedIn"
-            />
+          <i className="devicon-linkedin-plain hover:text-[#5DF8D8]"></i>
           </a>
 
           <a
             href="#"
-            className="hover:text-[#D91656] duration-300 hover:scale-110"
+            className="hover:text-[#5DF8D8] duration-300 hover:scale-110"
           >
             <GrInstagram />
           </a>
+          
+        
+          
 
         </div>
 
@@ -115,7 +134,7 @@ const Hero = ({url})=> {
             <RiContactsFill />
           </button>
 
-          <button className="flex items-center gap-2 border-2 border-[#D91656] text-[#D91656] px-7 py-3 rounded-full hover:bg-[#D91656] hover:text-white hover:scale-105 duration-300">
+          <button onClick={Downloadresume} className="flex items-center gap-2 border-2 border-[#D91656] text-[#D91656] px-7 py-3 rounded-full hover:bg-[#D91656] hover:text-white hover:scale-105 duration-300">
             GET RESUME
             <IoMdDownload />
           </button>
@@ -130,7 +149,7 @@ const Hero = ({url})=> {
         {Herosection.map((i) => (
           <img
             key={i._id}
-            className="w-72 sm:w-80 lg:w-[300px] rounded-3xl object-cover shadow-2xl shadow-[#5DF8D8]/20 hover:scale-105 duration-500"
+            className="  grayscale hover:grayscale-0 h-90 w-90  border-8 border-[#5DF8D8]   rounded-full object-cover shadow-2xl shadow-[#5DF8D8]/20 hover:scale-105 duration-500"
             src={i.image}
             alt="Hero"
           />
@@ -146,3 +165,4 @@ const Hero = ({url})=> {
 }
 
 export default Hero;
+

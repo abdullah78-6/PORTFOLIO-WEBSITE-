@@ -4,6 +4,11 @@ import {useDispatch,useSelector} from "react-redux"
 import {toast} from "react-hot-toast"
 import axios from "axios"
 import { MdOutlineMessage } from "react-icons/md";
+import { FaGithub } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
+import { IoLogoGithub, IoMdDownload } from "react-icons/io";
+import { RiContactsFill } from "react-icons/ri";
+import { GrInstagram } from "react-icons/gr";
 const Contact = ({url}) => {
     const dispatch=useDispatch();
     const Contactdetails=useSelector(state=>state.main.Contactdetails);
@@ -77,7 +82,7 @@ const Contact = ({url}) => {
          </form>
 
          <div className="grid gap-6 sm:grid-cols-2 sm:gap-12 max-lg:-order-1">
-            <div className="flex items-start gap-4">
+            <div className="flex  gap-4 flex-col">
                <div className="shrink-0">
                   <svg xmlns="http://www.w3.org/2000/svg" className="size-6 fill-slate-600 dark:fill-slate-400"
                      viewBox="0 0 32 32">
@@ -95,7 +100,7 @@ const Contact = ({url}) => {
                </div>
             </div>
 
-            <div className="flex items-start gap-4">
+            <div className="flex items-start gap-4 flex-col ">
                <div className="shrink-0">
                   <svg xmlns="http://www.w3.org/2000/svg" className="size-6 fill-slate-600 dark:fill-slate-400"
                      viewBox="0 0 32 32">
@@ -110,7 +115,7 @@ const Contact = ({url}) => {
                </div>
             </div>
 
-            <div className="flex items-start gap-4">
+            <div className="flex items-start gap-4 flex-col justify-center">
                <div className="shrink-0">
                   <svg xmlns="http://www.w3.org/2000/svg" className="size-6 fill-slate-600 dark:fill-slate-400"
                      viewBox="0 0 24 24" aria-hidden="true">
@@ -119,12 +124,48 @@ const Contact = ({url}) => {
                         clip-rule="evenodd" data-original="#000000" />
                   </svg>
                </div>
-               <div>
+               <div className='flex flex-col'>
                   <h3 className="text-slate-900 text-base font-semibold dark:text-slate-50">Chat to us</h3>
                   <p className="text-sm text-slate-600 mt-1 dark:text-slate-400">abdullahqidwai92@gmail.com</p>
                </div>
-            </div>
+               <div className="flex justify-center  items-center gap-6 text-6xl  text-cyan-500  ">
+      
+                <a
+                  href="#"
+                  className="hover:text-[#D91656] duration-300 hover:scale-110"
+                >
+                  <IoLogoGithub />
+                </a>
+      
+                <a
+                  href="#"
+                  className="hover:text-[#D91656] duration-300 hover:scale-110"
+                >
+                  <SiLeetcode />
+                </a>
+      
+                <a
+                  href="#"
+                  className="hover:scale-110 duration-300"
+                >
+                <i className="devicon-linkedin-plain hover:text-[#D91656]"></i>
+                </a>
+      
+                <a
+                  href="#"
+                  className="hover:text-[#D91656] duration-300 hover:scale-110"
+                >
+                  <GrInstagram />
+                </a>
+                
+              
+                
+      
+              </div>
 
+               
+            </div>
+            
             
          </div>
       </div>
