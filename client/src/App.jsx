@@ -8,6 +8,8 @@ import Navbar from './components/Navbar'
 import Hero from './pages/Hero-section'
 import OurWork from './pages/Ourwork'
 import About from './pages/About'
+import Education from './pages/Education'
+import Achivement from './pages/Achivement'
 const App = () => {
   const dispatch=useDispatch();
   const serverurl="http://localhost:9000"
@@ -29,6 +31,8 @@ const themecolors={
       <Hero url={serverurl}/>
       <OurWork/>
       <About/>
+      <Education url={serverurl}/>
+      <Achivement url={serverurl}/>
       <Contact url={serverurl}/>
       <Footer />
       

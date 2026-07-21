@@ -9,12 +9,17 @@ const clientslice=createSlice({
         },
         navbarclass:"",
         mobilemenu:true,
-        Herosection:[]
+        Herosection:[],
+        education:[],
+        achivement:[]
 },
     reducers:{
         setContactdetails(state,action){
             const {name,value}=action.payload;
             state.Contactdetails[name]=value;
+        },
+        setachivement(state,action){
+            state.achivement=action.payload
         },
         setHerosection(state,action){
             state.Herosection=action.payload;
@@ -24,7 +29,11 @@ const clientslice=createSlice({
         },
         setmobilemenu(state,action){
             state.mobilemenu=action.payload;
+        },
+        seteducation(state,action){
+            state.education=action.payload;
         }
+
         
 
     }
