@@ -11,12 +11,21 @@ const clientslice=createSlice({
         mobilemenu:true,
         Herosection:[],
         education:[],
-        achivement:[]
+        achivement:[],
+        scroll:0,
+        skills:[]
 },
     reducers:{
         setContactdetails(state,action){
             const {name,value}=action.payload;
             state.Contactdetails[name]=value;
+        },
+        setskills(state,action){
+            state.skills=action.payload;
+
+        },
+        setscroll(state,action){
+            state.scroll=action.payload;
         },
         setachivement(state,action){
             state.achivement=action.payload

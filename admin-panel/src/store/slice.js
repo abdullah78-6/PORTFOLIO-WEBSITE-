@@ -47,7 +47,8 @@ const adminslice=createSlice({
         herosectionid:"",
         contactdetails:[],
         achievementetails:[],
-        educationdetails:[]
+        educationdetails:[],
+        Websiteviews:null
         
         
     },
@@ -116,6 +117,9 @@ const adminslice=createSlice({
     },
     seteducationdetails(state,action){
         state.educationdetails=action.payload;
+    },
+    setWebsiteviews(state,action){
+        state.Websiteviews=action.payload;
     }
     
     
