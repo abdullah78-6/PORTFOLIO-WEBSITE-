@@ -17,6 +17,7 @@
     "firebase": "^12.15.0",
     "motion": "^12.42.2",
     "react": "^19.2.7",
+    "react-countup": "^6.5.3",
     "react-csv": "^2.2.2",
     "react-dom": "^19.2.7",
     "react-hot-toast": "^2.6.0",
@@ -24,6 +25,7 @@
     "react-pdf": "^10.4.1",
     "react-redux": "^9.3.0",
     "react-router-dom": "^7.18.1",
+    "react-slot-counter": "^3.3.3",
     "react-spinners": "^0.17.0",
     "tailwindcss": "^4.3.2"
   },

@@ -13,12 +13,16 @@ const clientslice=createSlice({
         education:[],
         achivement:[],
         scroll:0,
-        skills:[]
+        skills:[],
+        projectlist:[]
 },
     reducers:{
         setContactdetails(state,action){
             const {name,value}=action.payload;
             state.Contactdetails[name]=value;
+        },
+        setprojectlist(state,action){
+            state.projectlist=action.payload;
         },
         setskills(state,action){
             state.skills=action.payload;

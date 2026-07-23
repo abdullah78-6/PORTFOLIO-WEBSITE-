@@ -48,13 +48,33 @@ const adminslice=createSlice({
         contactdetails:[],
         achievementetails:[],
         educationdetails:[],
-        Websiteviews:null
+        Websiteviews:null,
+        totalcontacts:0,
+        totalprojects:0,
+        totalskills:0,
+        totalachievements:0,
+        totaleducation:0
         
         
     },
     reducers:{
     setbackendemail(state,action){
             state.backendemail=action.payload;
+    },
+    settotaleducation(state,action){
+        state.totaleducation=action.payload;
+    },
+    settotalachievements(state,action){
+        state.totalachievements=action.payload;
+    },
+    settotalskills(state,action){
+        state.totalskills=action.payload;
+    },
+    settotalprojects(state,action){
+        state.totalprojects=action.payload;
+    },
+    settotalcontacts(state,action){
+        state.totalcontacts=action.payload;
     },
     setlogininfo2(state,action){
         const {name,value}=action.payload;

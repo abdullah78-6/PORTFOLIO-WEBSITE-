@@ -14,6 +14,7 @@ import axios from "axios"
 import { useRef } from 'react'
 import { FaArrowCircleUp } from "react-icons/fa";
 import Skills from './pages/Skills'
+import Projects from './pages/Projects'
 const App = () => {
   const dispatch=useDispatch();
   const serverurl="http://localhost:9000"
@@ -76,6 +77,7 @@ const themecolors={
       <About/>
       <Education url={serverurl}/>
       <Skills url={serverurl}/>
+      <Projects url={serverurl}/>
       <Achivement url={serverurl}/>
       <Contact url={serverurl}/>
       <Footer />
