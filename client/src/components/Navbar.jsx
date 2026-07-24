@@ -13,7 +13,7 @@ const Navbar = () => {
         <div>
             <h1 onClick={()=>dispatch(control.setnavbarclass(""))} className='text-3xl uppercase text-[#5DF8D8] cursor-pointer'>abdullah<span className='text-[#D91656]'> qidwai</span></h1>
         </div>
-        <ul className=' hidden lg:flex lg:justify-end lg:gap-5 lg:capitalize lg:text-xl lg:text-white      xl:flex xl:justify-end xl:gap-5 xl:capitalize xl:text-xl xl:text-white         md:flex md:justify-end md:gap-5 md:capitalize md:text-xl md:text-white'>
+        <ul className=' hidden lg:flex lg:justify-end lg:gap-5 lg:capitalize lg:text-xl lg:text-white      xl:flex xl:justify-end xl:gap-5 xl:capitalize xl:text-xl xl:text-white md:hidden          '>
             <li onClick={()=>dispatch(control.setnavbarclass("one"))} className={`hover:text-pink-600 cursor-pointer transition ease-in-out duration-200 ${navbarclass==="one"&&"border-b-4 rounded-sm text-[#EF88AD] border-[#AD62AA] "} `}>about</li>
             <li onClick={()=>dispatch(control.setnavbarclass("two"))} className={`hover:text-pink-600 cursor-pointer transition ease-in-out duration-200 ${navbarclass==="two"&&"border-b-4 rounded-sm text-[#EF88AD] border-[#AD62AA] "} `} >education</li>
             <li onClick={()=>dispatch(control.setnavbarclass("three"))} className={`hover:text-pink-600 cursor-pointer transition ease-in-out duration-200 ${navbarclass==="three"&&"border-b-4 rounded-sm text-[#EF88AD] border-[#AD62AA] "} `} >skills</li>
@@ -22,8 +22,8 @@ const Navbar = () => {
             <li onClick={()=>dispatch(control.setnavbarclass("six"))} className={`hover:text-pink-600 cursor-pointer transition ease-in-out duration-200 ${navbarclass==="six"&&"border-b-4 rounded-sm text-[#EF88AD] border-[#AD62AA] "} `} >contact</li>
             
         </ul>
-        <div className='md:hidden lg:hidden xl:hidden '>
-       {mobilemenu? <motion.button animate={{rotate:360 }} transition={{ duration:0.5}} onClick={()=>dispatch(control.setmobilemenu(false))} className='xl:hidden lg:hidden md:hidden text-4xl text-[#36ADA3] '><GiHamburgerMenu/></motion.button>:<motion.button transition={{ duration:0.5}}  onClick={()=>dispatch(control.setmobilemenu(true))} className='xl:hidden lg:hidden md:hidden text-4xl text-[#D91656] '><ImCross/></motion.button>}
+        <div className='md:text-4xl lg:hidden xl:hidden  '>
+       {mobilemenu? <motion.button animate={{rotate:360 }} transition={{ duration:0.5}} onClick={()=>dispatch(control.setmobilemenu(false))} className='xl:hidden lg:hidden  text-4xl text-[#36ADA3] '><GiHamburgerMenu/></motion.button>:<motion.button transition={{ duration:0.5}}  onClick={()=>dispatch(control.setmobilemenu(true))} className='xl:hidden lg:hidden  text-4xl text-[#D91656] '><ImCross/></motion.button>}
         </div>
        {!mobilemenu&& <AnimatePresence>
   <motion.ul
@@ -32,7 +32,7 @@ const Navbar = () => {
     exit={{ opacity: 0, y: -30, scale: 0.95 }}
     transition={{ duration: 0.35 }}
     className="
-      lg:hidden md:hidden xl:hidden
+      lg:hidden  xl:hidden
       absolute top-20 left-4 right-4
       
       bg-[#5A9690]
@@ -43,6 +43,7 @@ const Navbar = () => {
       overflow-hidden
       z-50
       p-2
+      
     "
   >
     <motion.div

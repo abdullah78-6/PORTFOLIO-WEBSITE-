@@ -49,7 +49,7 @@ const workData = [
 
 const OurWork = () => {
   return (
-    <section className="w-full py-24 px-6 lg:px-20 bg-transparent font-semibold">
+    <section className="w-full py-24 px-6 lg:px-20 bg-transparent font-semibold mt-0">
       {/* Heading */}
 
       <div className="text-center mb-16">

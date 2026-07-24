@@ -48,8 +48,8 @@ const Skills = ({ url }) => {
   const allSkills = [...skills, ...skills];
 
   return (
-    <div className="font-semibold mt-10">
-      <h1 className="text-3xl capitalize text-center text-[#D91656] mb-8">
+    <div className="font-semibold mt-10 py-24 px-6 lg:px-20">
+      <h1 className="text-4xl font-bold md:text-6xl capitalize text-center text-[#D91656] mb-8">
         Skills
       </h1>
 

@@ -45,10 +45,10 @@ const Contact = ({url}) => {
     <section className="px-4 md:px-8 mt-6 font-semibold ">
    <div className="max-w-6xl max-lg:max-w-2xl mx-auto">
       <div className="max-w-3xl mb-12 md:mb-16 ">
-         <h2 className="text-3xl  text-slate-900 mb-6 md:text-4xl dark:text-slate-50">
+         <h2 className="text-3xl font-bold text-slate-200 mb-6 md:text-4xl ">
             Contact us
          </h2>
-         <p className="text-base leading-relaxed text-slate-600 dark:text-slate-400 ">
+         <p className="text-base leading-relaxed text-slate-200 ">
             Have a question, need support, or want to discuss your next project? We’re here to help.
          </p>
       </div>
@@ -57,9 +57,9 @@ const Contact = ({url}) => {
          <form className="space-y-6 border-2 p-6 border-gray-500 rounded-xl">
             <div>
                <label htmlFor="name"
-                  className="mb-2 text-slate-900 dark:text-slate-50 font-medium text-sm inline-block">Name</label>
+                  className="mb-2 text-slate-200 font-medium text-sm inline-block">Name</label>
                <input onChange={onchangehandler} name="name" value={Contactdetails.name} type="text" id="name" name="name" placeholder="John doe" required
-                  className="px-3 py-2.5 text-sm text-slate-900 w-full rounded-md bg-white outline-1 -outline-offset-1 outline-slate-300 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600 dark:text-slate-50 dark:bg-neutral-800 dark:outline-neutral-700" />
+                  className="px-3 py-2.5 text-sm text-slate-200 w-full rounded-md bg-white outline-1 -outline-offset-1 outline-slate-300 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600  dark:bg-neutral-800 dark:outline-neutral-700" />
             </div>
             <div>
                <label htmlFor="email"
@@ -119,16 +119,16 @@ const Contact = ({url}) => {
                <div className="shrink-0">
                   <svg xmlns="http://www.w3.org/2000/svg" className="size-6 fill-slate-600 dark:fill-slate-400"
                      viewBox="0 0 24 24" aria-hidden="true">
-                     <path fill-rule="evenodd"
+                     <path 
                         d="M.41 4.747A4.35 4.35 0 0 1 4.76.4h14.488a4.35 4.35 0 0 1 4.35 4.352l-.007 10.109a4.35 4.35 0 0 1-4.35 4.346H13.52a.3.3 0 0 0-.188.07l-4.548 3.84c-1.319 1.113-3.338.176-3.338-1.552v-2.068a.29.29 0 0 0-.29-.29h-.403a4.35 4.35 0 0 1-4.35-4.352zM4.76 2.14a2.61 2.61 0 0 0-2.61 2.608l-.008 10.108a2.61 2.61 0 0 0 2.61 2.611h.403c1.12 0 2.03.91 2.03 2.03v2.068a.29.29 0 0 0 .475.22l4.548-3.839a2.03 2.03 0 0 1 1.31-.479h5.723a2.61 2.61 0 0 0 2.61-2.608l.007-10.108a2.61 2.61 0 0 0-2.61-2.61zm2.128 5.29a.87.87 0 0 1 .87-.87h8.485a.87.87 0 0 1 0 1.74H7.757a.87.87 0 0 1-.87-.87zm0 4.744a.87.87 0 0 1 .87-.87h4.781a.87.87 0 0 1 0 1.74H7.758a.87.87 0 0 1-.87-.87"
-                        clip-rule="evenodd" data-original="#000000" />
+                       data-original="#000000" />
                   </svg>
                </div>
                <div className='flex flex-col'>
                   <h3 className="text-slate-900 text-base font-semibold dark:text-slate-50">Chat to us</h3>
                   <p className="text-sm text-slate-600 mt-1 dark:text-slate-400">abdullahqidwai92@gmail.com</p>
                </div>
-               <div className="flex justify-center  items-center gap-6 text-6xl  text-cyan-500  ">
+               <div className="flex justify-center items-center gap-6 text-6xl text-cyan-500 w-full mt-2 flex-wrap">
       
                 <a
                   href="#"

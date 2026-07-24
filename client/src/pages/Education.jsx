@@ -29,8 +29,8 @@ const Education = ({url}) => {
 
     },[])
 return (
-    <div className='font-semibold '>
-        <h1 className='text-center capitalize text-4xl text-[#D91656]'>education</h1>
+    <div className='font-semibold py-24 px-6 lg:px-20'>
+        <h1 className='text-center capitalize text-4xl font-bold md:text-6xl text-[#D91656]'>education</h1>
         <div className='flex justify-center gap-24 items-center flex-wrap mt-15'>
             <div>
                 <DotLottieReact
@@ -42,7 +42,7 @@ return (
     />
                 
             </div>
-            <div className='flex flex-row flex-wrap gap-8 w-full lg:w-[550px]' >
+            <div className='flex flex-row flex-wrap gap-8 w-full lg:w-[350px]' >
             {education.map((i,index)=>(
                 <div key={index}   className="bg-gradient-to-br from-[#17153B] to-[#1B3C53] border border-[#240750] hover:border-[#5DF8D8] rounded-2xl p-6 shadow-lg hover:shadow-cyan-500/20 transition-all duration-300 hover:-translate-y-2 text-center" >
                     <div  className="flex items-center gap-5 justify-center ">

@@ -31,7 +31,7 @@ const Projects = ({ url }) => {
   }, []);
 
   return (
-    <section className="py-16 px-5 capitalize">
+    <section className="py-16 px-5 capitalize py-24 px-6 lg:px-20">
       <div className="max-w-7xl mx-auto">
     
 
